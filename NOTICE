@@ -1,0 +1,17 @@
+Xeon Phi toolchain
+
+This distribution contains LLVM/Clang modifications and original toolchain,
+runtime, test and application-integration work. It is an independent project,
+not an Intel product and not endorsed by Intel or the upstream projects.
+
+LLVM and compiler-rt: Apache License 2.0 with LLVM exceptions.
+llama.cpp modifications: retain the upstream MIT license in licenses/llama.txt.
+musl-derived math sources: retain their individual source notices and the
+complete runtime/musl-math/COPYRIGHT file.
+Rust examples/runtime support in this repository are original project code;
+Rust compiler/std are fetched separately under their upstream MIT/Apache terms.
+GCC/libstdc++ and the Intel MPSS SDK are external dependencies, not distributed
+in this source release. Their existing licenses remain applicable.
+
+Detailed upstream revisions and component notes: sources.lock.json and
+THIRD_PARTY.md. No model weights are included.

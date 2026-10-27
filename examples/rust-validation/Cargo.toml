@@ -1,0 +1,9 @@
+[package]
+name = "knc-validation"
+version = "0.1.0"
+edition = "2024"
+[lib]
+crate-type = ["staticlib"]
+[profile.release]
+panic = "abort"
+opt-level = 2

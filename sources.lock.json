@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "llvm": {
+    "url": "https://github.com/llvm/llvm-project.git",
+    "revision": "395ba2c4d274e0d81bea69a49aba372e3743d113",
+    "patch": "patches/llvm/0001-knights-corner.patch",
+    "patch_sha256": "b1e321ca0ed7172fe888c49b30942bb33c81474e2166b45030edb64684600419"
+  },
+  "llama": {
+    "url": "https://github.com/ggml-org/llama.cpp.git",
+    "revision": "63b4b303bd87456adc2f09d56c7e1f74e9e26673",
+    "patch": "patches/llama/0001-xeon-phi.patch",
+    "patch_sha256": "b1e1ed95bc871ac02cb7afa9e69f24742dc497616f0c7608d4a6fbc06628bdca"
+  },
+  "rust": {
+    "url": "https://github.com/rust-lang/rust.git",
+    "revision": "0dfb098f3aeecbe38c2566ca090193280e7349e7",
+    "bootstrap_toolchain": "nightly-2026-09-01"
+  },
+  "gcc": {
+    "version": "13.4.0",
+    "url": "https://gcc.gnu.org/pub/gcc/releases/gcc-13.4.0/gcc-13.4.0.tar.xz",
+    "sha512": "9b4b83ecf51ef355b868608b8d257b2fa435c06d2719cb86657a7c2c2a0828ff4ce04e9bac1055bbcad8ed5b4da524cafaef654785e23a50233d95d89201e35f"
+  },
+  "sdk": {
+    "version_tested": "MPSS 3.8.6",
+    "distribution": "external user installation; not included"
+  }
+}

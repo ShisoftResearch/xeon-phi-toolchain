@@ -1,0 +1,1097 @@
+{
+  "description": "Sources retained from the private development tree; paths are component names, not workstation locations. Public build and packaging tools are new or adapted.",
+  "files": {
+    "LICENSE": {
+      "original": "LICENSE",
+      "original_sha256": "3340babe8ac7bc6ae294d93aa01c310a250d43d5b760e5c12954882d4e5c83c7"
+    },
+    "patches/llvm/0001-knights-corner.patch": {
+      "original": "llvm-knc.patch",
+      "original_sha256": "b1e321ca0ed7172fe888c49b30942bb33c81474e2166b45030edb64684600419"
+    },
+    "patches/llama/0001-xeon-phi.patch": {
+      "original": "llama-knl.patch",
+      "original_sha256": "b1e1ed95bc871ac02cb7afa9e69f24742dc497616f0c7608d4a6fbc06628bdca"
+    },
+    "docs/capability-coverage.rst": {
+      "original": "CAPABILITIES.rst",
+      "original_sha256": "f344b4b506a1cd8b3e0d57f3b083b00a934207683b3564e9267e28bb347e6533"
+    },
+    "include/k1om/capabilities.h": {
+      "original": "include/k1om/capabilities.h",
+      "original_sha256": "2505cf8c64cd8c4366605eec8426f8b5aa668bdc71f7dab1b36e3acd454e818b"
+    },
+    "runtime/APPROX.rst": {
+      "original": "runtime/APPROX.rst",
+      "original_sha256": "6daa47e26d3fcc65ea475f584345d3d0a5eaa4c6832e2ce27d7881e600ac457c"
+    },
+    "runtime/FP-ENVIRONMENT.rst": {
+      "original": "runtime/FP-ENVIRONMENT.rst",
+      "original_sha256": "abe0891a6f79bac09ddacc3d053a149c29f4bb4d978463f46d633868d00046d6"
+    },
+    "runtime/allocator-marker.ll": {
+      "original": "runtime/allocator-marker.ll",
+      "original_sha256": "9dbf454a05082eca1c5070fc7d6ed8f096952eca945d52f56f68765687a0701d"
+    },
+    "runtime/approx-primitives.ll": {
+      "original": "runtime/approx-primitives.ll",
+      "original_sha256": "81eb82969058f94f1430354dc1926ca6207fd11bf553099e5fb10bdb9298258a"
+    },
+    "runtime/approx.c": {
+      "original": "runtime/approx.c",
+      "original_sha256": "1d02e6219c3acecf4cdd691f4854eb5d208fc6a4409ac2246a13f991f45acb64"
+    },
+    "runtime/math-abi.c": {
+      "original": "runtime/math-abi.c",
+      "original_sha256": "2d4873bdae4e39b37b3b4e27ac41d51f79549b62998dc48bdd0a04f4a7c24fe9"
+    },
+    "runtime/minmax.c": {
+      "original": "runtime/minmax.c",
+      "original_sha256": "2e8f2565deb612c06b1925a0fc5d9d9d754eda7ec4ed92a427034874fc142dc9"
+    },
+    "runtime/musl-math/COPYRIGHT": {
+      "original": "runtime/musl-math/COPYRIGHT",
+      "original_sha256": "f9bc4423732350eb0b3f7ed7e91d530298476f8fec0c6c427a1c04ade22655af"
+    },
+    "runtime/musl-math/__cos.c": {
+      "original": "runtime/musl-math/__cos.c",
+      "original_sha256": "3f0f774aab60a18d7ef935ffdf121bcda17cbadabff14096c614da22e31a42c1"
+    },
+    "runtime/musl-math/__cosdf.c": {
+      "original": "runtime/musl-math/__cosdf.c",
+      "original_sha256": "0ba872cc7e26b93bb9784d19fee84b263e1fa3543a76ec3c0893aea47453a2a7"
+    },
+    "runtime/musl-math/__rem_pio2.c": {
+      "original": "runtime/musl-math/__rem_pio2.c",
+      "original_sha256": "938329e0939cd83ee2185a52154b41242f618d4a6df1b08395f344da33d4f1e6"
+    },
+    "runtime/musl-math/__rem_pio2_large.c": {
+      "original": "runtime/musl-math/__rem_pio2_large.c",
+      "original_sha256": "b97f19fb5951c83a0c10506fab35646caefde13bd03100ad2af55ef00af0b9fb"
+    },
+    "runtime/musl-math/__rem_pio2f.c": {
+      "original": "runtime/musl-math/__rem_pio2f.c",
+      "original_sha256": "b73a0219ba4a34e39ed904b5008126ff1b12dfa1a4a380941363c8db5088d756"
+    },
+    "runtime/musl-math/__sin.c": {
+      "original": "runtime/musl-math/__sin.c",
+      "original_sha256": "f3a37ef9bcfb8a2f9c809d8c7f1aa2c17c8c3319ad7fb2fe7c0a6284ea8859d2"
+    },
+    "runtime/musl-math/__sindf.c": {
+      "original": "runtime/musl-math/__sindf.c",
+      "original_sha256": "de7026bcd159b7d06a8cbcc162df722014f3b1a3cc4183116b6b7829eef1d118"
+    },
+    "runtime/musl-math/cos.c": {
+      "original": "runtime/musl-math/cos.c",
+      "original_sha256": "3a74e054057d636fa494bdd76a53a40db5cee618264f6ab31cb0538ba63c6bda"
+    },
+    "runtime/musl-math/cosf.c": {
+      "original": "runtime/musl-math/cosf.c",
+      "original_sha256": "33cf828e8e733da2b72c723b9ff20057b9a4f10df72a3923dadcb626c23d222c"
+    },
+    "runtime/musl-math/fp_arch.h": {
+      "original": "runtime/musl-math/fp_arch.h",
+      "original_sha256": "3ccfe54205e3fccd53fc4e237138c8ca9f15d755c550c4a849d7cfbf398c0196"
+    },
+    "runtime/musl-math/libm.h": {
+      "original": "runtime/musl-math/libm.h",
+      "original_sha256": "d5a11757541471030d8f4bf7a39a29de35732ecbb291b2f45bf03296be4f25a2"
+    },
+    "runtime/musl-math/provenance.json": {
+      "original": "runtime/musl-math/provenance.json",
+      "original_sha256": "63e3516af1598ced801a751952756a658420288c6c3d7d955d0497cc65452715"
+    },
+    "runtime/musl-math/sin.c": {
+      "original": "runtime/musl-math/sin.c",
+      "original_sha256": "24e53a9d85f196f66919cc19247be5480bb607ef38844b1a24bc47c4fe4974ef"
+    },
+    "runtime/musl-math/sinf.c": {
+      "original": "runtime/musl-math/sinf.c",
+      "original_sha256": "2583af55446f07da3225186c368a7aae5a0a0a0edab268967f4122b92e222b87"
+    },
+    "runtime/sqrt.c": {
+      "original": "runtime/sqrt.c",
+      "original_sha256": "e2270045d918d4391e6b05f27951eebf3a28ecf078856f8a6624574d373bfdcb"
+    },
+    "runtime/trig.c": {
+      "original": "runtime/trig.c",
+      "original_sha256": "a4e237bfa69ddc39b76c8b1cbb5be94578e388d23f951b1564e879d37a1e76b2"
+    },
+    "examples/rust-autovec-demo/Cargo.lock": {
+      "original": "rust-autovec-demo/Cargo.lock",
+      "original_sha256": "102b205b5edf24cba15525cd0562a3de21371360d9571f551b1631be017b579c"
+    },
+    "examples/rust-autovec-demo/Cargo.toml": {
+      "original": "rust-autovec-demo/Cargo.toml",
+      "original_sha256": "a6c62bb72396b87a0896ccd9b1ec12855c3681469e137aacc22d8c49e4ae5f95"
+    },
+    "examples/rust-autovec-demo/src/main.rs": {
+      "original": "rust-autovec-demo/src/main.rs",
+      "original_sha256": "81eefc009719737f7eea23d752174607f23bfc4801cc580fc07f3007e4f80a70"
+    },
+    "examples/rust-demo/Cargo.lock": {
+      "original": "rust-demo/Cargo.lock",
+      "original_sha256": "4ae6d0b8c129b5e74844544e7303b5ab4fdfb6e98950267162da605484d64495"
+    },
+    "examples/rust-demo/Cargo.toml": {
+      "original": "rust-demo/Cargo.toml",
+      "original_sha256": "1c9f66ccb45f5694db79f94f84a801fcf1cadd4905d5b457511484b2ab41b49a"
+    },
+    "examples/rust-demo/src/lib.rs": {
+      "original": "rust-demo/src/lib.rs",
+      "original_sha256": "6631e524bc3fed14fe371140d7a446d733592af7665f3e785b1a3a58e23cfb4a"
+    },
+    "examples/rust-fingerprint/Cargo.lock": {
+      "original": "rust-fingerprint/Cargo.lock",
+      "original_sha256": "fc0f0f018bb61d0ca2c56b2a933e771228c4e9f5b7966d712b747646b91e39e6"
+    },
+    "examples/rust-fingerprint/Cargo.toml": {
+      "original": "rust-fingerprint/Cargo.toml",
+      "original_sha256": "da89b1ba21a88a7793c6f3c7d7066974d80a2235f9634339f471b49a6b4432b2"
+    },
+    "examples/rust-fingerprint/build.rs": {
+      "original": "rust-fingerprint/build.rs",
+      "original_sha256": "3440dad4c78750e59226a33ff20db7fae2969322a26a4fad0af58d6ab74706fa"
+    },
+    "examples/rust-fingerprint/native-reference.c": {
+      "original": "rust-fingerprint/native-reference.c",
+      "original_sha256": "44a7b2c2b2be16356b2e2df0da1e84898c56b4fe6aa97c1920c10daa4e74bd54"
+    },
+    "examples/rust-fingerprint/src/main.rs": {
+      "original": "rust-fingerprint/src/main.rs",
+      "original_sha256": "cca22e42224cae408ed762ae82342c6e10b727d32e0bc319f9f4c564db65a3ab"
+    },
+    "examples/rust-imci-demo/Cargo.lock": {
+      "original": "rust-imci-demo/Cargo.lock",
+      "original_sha256": "a1c720b7ad4284b93ded375a4863ce813336997ac2b9c49252f43fae84b12301"
+    },
+    "examples/rust-imci-demo/Cargo.toml": {
+      "original": "rust-imci-demo/Cargo.toml",
+      "original_sha256": "03ba0a2c5abb6d961163833e9840db051186a0bf460cc5ab5ee7bdfdc9bf9ab1"
+    },
+    "examples/rust-imci-demo/src/main.rs": {
+      "original": "rust-imci-demo/src/main.rs",
+      "original_sha256": "34d4d326858721e5916d17d1243c8d4614a083c2d91a665b07d23f39282f2167"
+    },
+    "examples/rust-native-abi/Cargo.lock": {
+      "original": "rust-native-abi/Cargo.lock",
+      "original_sha256": "5a22bdd6fc0bd51332378ed506e48789ff9d64ad399916b2d951730c99a333d9"
+    },
+    "examples/rust-native-abi/Cargo.toml": {
+      "original": "rust-native-abi/Cargo.toml",
+      "original_sha256": "451357b16dd2308b8c74101b5f67855e9d073d09ba8a582b8e08520d87027ad9"
+    },
+    "examples/rust-native-abi/src/lib.rs": {
+      "original": "rust-native-abi/src/lib.rs",
+      "original_sha256": "bf5ab61954f23d238e80a675d1ab93cf84350f5ad6b9e29f0f8e558dd5b72aca"
+    },
+    "examples/rust-optimization-kernels/Cargo.lock": {
+      "original": "rust-optimization-kernels/Cargo.lock",
+      "original_sha256": "7862258038a7fb82f4323d232aa43fafbbecaece91af1cc7d28c8cd2e6a23bf5"
+    },
+    "examples/rust-optimization-kernels/Cargo.toml": {
+      "original": "rust-optimization-kernels/Cargo.toml",
+      "original_sha256": "0df0debf5778c8d098ecfed4a7ad016d1d382ddfe44e849fe0c6460ec6d16462"
+    },
+    "examples/rust-optimization-kernels/src/lib.rs": {
+      "original": "rust-optimization-kernels/src/lib.rs",
+      "original_sha256": "5500d7dc0c34e4bf52e70ef31833560b144764866d38ad0b934a83fe0434aeb6"
+    },
+    "examples/rust-smoke/Cargo.lock": {
+      "original": "rust-smoke/Cargo.lock",
+      "original_sha256": "8e272d739e838ffc6d927a18a4f59fcefe8a4d7bb43ca4ba79ebd01643454595"
+    },
+    "examples/rust-smoke/Cargo.toml": {
+      "original": "rust-smoke/Cargo.toml",
+      "original_sha256": "cee27f3bb461c6ae5199c7f0ae28b6aeea47131bc811c2498898525ec9adf9f3"
+    },
+    "examples/rust-smoke/src/lib.rs": {
+      "original": "rust-smoke/src/lib.rs",
+      "original_sha256": "de40fdd8b483d4df0f6e5871e3f26238494b2eeff76e7c40ad0372a571b6798a"
+    },
+    "examples/rust-std-demo/Cargo.lock": {
+      "original": "rust-std-demo/Cargo.lock",
+      "original_sha256": "531cf23905de875bc42685600bb3b253ee1449ffa1f149290743a6f295a552db"
+    },
+    "examples/rust-std-demo/Cargo.toml": {
+      "original": "rust-std-demo/Cargo.toml",
+      "original_sha256": "eadf8913d9ab735e2bdb67f9912e38355dcddcd4b84167d802f4e06122c01e1b"
+    },
+    "examples/rust-std-demo/src/main.rs": {
+      "original": "rust-std-demo/src/main.rs",
+      "original_sha256": "41e83b50bd5a62c4606dc4676cc38ee7b8a50bb778a0ae78ace72da1f17ba04a"
+    },
+    "examples/rust-validation/Cargo.lock": {
+      "original": "rust-validation/Cargo.lock",
+      "original_sha256": "151dbd2ba251df5a58c25f6094c376a3cb7630ec0c821f755027df84353fdaf9"
+    },
+    "examples/rust-validation/Cargo.toml": {
+      "original": "rust-validation/Cargo.toml",
+      "original_sha256": "eefc268da9460e4b2fd00fc0e2f624af2de01e42339080c2e232e5499cbe0ca1"
+    },
+    "examples/rust-validation/src/lib.rs": {
+      "original": "rust-validation/src/lib.rs",
+      "original_sha256": "91d98dd2a848eff2fbbda26830f44867c0dd4d86609c14423f65944b73741c63"
+    },
+    "examples/rust-vector-math/Cargo.lock": {
+      "original": "rust-vector-math/Cargo.lock",
+      "original_sha256": "028e22c7ba03ac7d5375bcd7eaef1df4ca3169e0ca0d6f503f59074ba17da569"
+    },
+    "examples/rust-vector-math/Cargo.toml": {
+      "original": "rust-vector-math/Cargo.toml",
+      "original_sha256": "d4d2611d4af17310205e04b5e6aa8f70f122cddb726a3173e5198bb1cad6364a"
+    },
+    "examples/rust-vector-math/src/conversions.rs": {
+      "original": "rust-vector-math/src/conversions.rs",
+      "original_sha256": "116c11d976073a016b70ae9994756ef56c5ac8b2b50b91811d112470dd4fa0ac"
+    },
+    "examples/rust-vector-math/src/lib.rs": {
+      "original": "rust-vector-math/src/lib.rs",
+      "original_sha256": "6fe1b75aeab3c7b282d957fee6da3447fcfad2988738be89ca8926c4f02e982f"
+    },
+    "examples/rust-vector-math/src/main.rs": {
+      "original": "rust-vector-math/src/main.rs",
+      "original_sha256": "6d707d9c058904ca0e73cab7bf44dabd59161e0fa22a54ae16c96520d8bf1632"
+    },
+    "tests/application-readiness/CMakeLists.txt": {
+      "original": "tests/application-readiness/CMakeLists.txt",
+      "original_sha256": "995fadd86deb0ce7d4ceb6519b992463b7ec405142e6b8066caceadc1b265370"
+    },
+    "tests/application-readiness/contract.h": {
+      "original": "tests/application-readiness/contract.h",
+      "original_sha256": "720cf6cd81b96cb60205c4f26e196d8724a1aa128869b14daea6118d39beac0d"
+    },
+    "tests/application-readiness/main.cpp": {
+      "original": "tests/application-readiness/main.cpp",
+      "original_sha256": "2d5716bb5df6dc43e36e159662e1b43958663beee5b72801c081148ac5963f5b"
+    },
+    "tests/application-readiness/unwind.cpp": {
+      "original": "tests/application-readiness/unwind.cpp",
+      "original_sha256": "85f39a3289d19f4b6adc3122a3b67c8d17e28d66a630c68bbb7dbf435b8a134d"
+    },
+    "tests/approx-cases.h": {
+      "original": "tests/approx-cases.h",
+      "original_sha256": "f14f5f2149a7681ce14f239d8acfc03b470d072946b09fe4d5a37240a8cbc935"
+    },
+    "tests/approx-clang.cpp": {
+      "original": "tests/approx-clang.cpp",
+      "original_sha256": "021fcf706214d410e6f93d88ac336e2bc211da1d858241ee60a39a47c6f3a6c9"
+    },
+    "tests/approx-math.c": {
+      "original": "tests/approx-math.c",
+      "original_sha256": "1c057fbed8f0e8db6ac540730fa83fe0df92d4d6a04515445d2b75bcdf45df57"
+    },
+    "tests/autovec-fp.c": {
+      "original": "tests/autovec-fp.c",
+      "original_sha256": "79e350a83597898e2bfc559ea7bfba6e325da583d2974862605c3ef67d1c3671"
+    },
+    "tests/autovec-quantized.c": {
+      "original": "tests/autovec-quantized.c",
+      "original_sha256": "86cf38a2623bf36590999c2cd33b7ea10d111e66adde40b1cc3b260af5d527b0"
+    },
+    "tests/capability-contracts.c": {
+      "original": "tests/capability-contracts.c",
+      "original_sha256": "163f06417c7cd1c77485ca3b28518e2c5ee786cec83b216af3b3acbb60784030"
+    },
+    "tests/capability-kernel-client.c": {
+      "original": "tests/capability-kernel-client.c",
+      "original_sha256": "ed85af38fc60506d47eb38ef4f1d8d934aeec0f127521ff86d84c0e1cbbbf696"
+    },
+    "tests/capability-kernels.c": {
+      "original": "tests/capability-kernels.c",
+      "original_sha256": "531af96d54fc768f60f43602c76885b8298bbbae81846f8ea86e91d351369e86"
+    },
+    "tests/clang-autovec-quantized.c": {
+      "original": "tests/clang-autovec-quantized.c",
+      "original_sha256": "52908facdc5f9517e647ef4796aff60c14dd2559e2c924cf136f23bd80c881fd"
+    },
+    "tests/clang-cpp.cpp": {
+      "original": "tests/clang-cpp.cpp",
+      "original_sha256": "a970048ceb1d77ce60d065bbdc792ca5f2f8c167f2e61eb02194434031684c4f"
+    },
+    "tests/clang-fp-select.c": {
+      "original": "tests/clang-fp-select.c",
+      "original_sha256": "a1e34f0184f9020915be667531349ea8d71145d501ef131f14a081a88fa323a0"
+    },
+    "tests/clang-half.c": {
+      "original": "tests/clang-half.c",
+      "original_sha256": "2c405d18c2f8f2daa16604c4a7b08bf2c65f1be156a2ed474342256c44e91386"
+    },
+    "tests/clang-predicated.c": {
+      "original": "tests/clang-predicated.c",
+      "original_sha256": "9834aea35c0199906dab3717d0f1b31f2ab926fd5016162cdeb79608b5284ac8"
+    },
+    "tests/clang-softfloat.c": {
+      "original": "tests/clang-softfloat.c",
+      "original_sha256": "5628d4075e3c8db012d22248272c85c60d145cf790721e32dab868d9bffa99d7"
+    },
+    "tests/clang-varargs.c": {
+      "original": "tests/clang-varargs.c",
+      "original_sha256": "e73af20bd9a0582f5c8c9004023b04ce6a5ba6a9685f99e10783d5617b4a324b"
+    },
+    "tests/compiler-rt.c": {
+      "original": "tests/compiler-rt.c",
+      "original_sha256": "f28f491191259769ac9845ccd02c4c65d68006b2adc63a247e43b67fb53f03a8"
+    },
+    "tests/contiguous-cases.h": {
+      "original": "tests/contiguous-cases.h",
+      "original_sha256": "926a761ded054cb1108b915514bd8a68ac960d9e022c1c2dc305993265fcf5ca"
+    },
+    "tests/contiguous-conversions.c": {
+      "original": "tests/contiguous-conversions.c",
+      "original_sha256": "c28b94b62850c2e21234253150360b06aef98cfb205867aaf55b70b4e9a42b8a"
+    },
+    "tests/contiguous.c": {
+      "original": "tests/contiguous.c",
+      "original_sha256": "e7ea105c2c2f06074a6625e7a9cd51c2f64c452c312b41f825199cc74a485315"
+    },
+    "tests/fp-bits.h": {
+      "original": "tests/fp-bits.h",
+      "original_sha256": "8dcb7e629c37bd1bc067245c7a8d93fdcc883ffa6e6744acd790c4b2bbf69251"
+    },
+    "tests/fp-compare-cases.h": {
+      "original": "tests/fp-compare-cases.h",
+      "original_sha256": "ef861705142e310ffed93fba2157b5fe0b35ff1c6391a3ab2c4292a2c2e6d337"
+    },
+    "tests/fp-compare.c": {
+      "original": "tests/fp-compare.c",
+      "original_sha256": "08a7e3564fbedd886d5ce17b5bf7892363a8bb072f50f5fdb50a9a6f4f9f93cd"
+    },
+    "tests/fp-reduction-cases.h": {
+      "original": "tests/fp-reduction-cases.h",
+      "original_sha256": "32250d448b78922b8edcfadbc8f1d624ad86da2df832c75b9b5b1a61ebc3c2b0"
+    },
+    "tests/fp-reductions.c": {
+      "original": "tests/fp-reductions.c",
+      "original_sha256": "7847529a39ba9c212dbf7aedab53bfdf40cc86260da535c27c120e3fa5aafc52"
+    },
+    "tests/fp-scheduling-cases.h": {
+      "original": "tests/fp-scheduling-cases.h",
+      "original_sha256": "4cdb79230cf83b18de8955396c1a937220ad07b3eb9cb7b95c0df1cb193fce35"
+    },
+    "tests/fp-scheduling.c": {
+      "original": "tests/fp-scheduling.c",
+      "original_sha256": "61920369b9599d4a988188678a81b5692131a3afa2b16782cfda4e162aa0eeff"
+    },
+    "tests/fp-select.c": {
+      "original": "tests/fp-select.c",
+      "original_sha256": "b1cfc54705470aabdcb4e02b423b7e54f46c79bff9db4959b471a2617cf572c0"
+    },
+    "tests/fp-vector-tuning-cases.h": {
+      "original": "tests/fp-vector-tuning-cases.h",
+      "original_sha256": "0ebdc6555f49dbedd4e4353c5e1fc0d02bbdae3f79be63138f092faf8304e80d"
+    },
+    "tests/fp-vector-tuning.c": {
+      "original": "tests/fp-vector-tuning.c",
+      "original_sha256": "2073ac0f5545ef5ab55cf3144b9707b5742d5e26f20623c514c4e1d91bb2cbf2"
+    },
+    "tests/gaps.c": {
+      "original": "tests/gaps.c",
+      "original_sha256": "17ff60c8de652fa164a5ba00a61d511c81a916cf6557c56185790600d251eeba"
+    },
+    "tests/half-composition-cases.h": {
+      "original": "tests/half-composition-cases.h",
+      "original_sha256": "e2aecc7fdf01ccf88bb7d45fc1cae4bc91d940fbd41f022f2cbdbb0aad0f69f4"
+    },
+    "tests/half-compositions.c": {
+      "original": "tests/half-compositions.c",
+      "original_sha256": "a06666627e42d2994e961271c8f54c9cbdb7a0946f9d4f891b9067dbea4fbcdc"
+    },
+    "tests/half.c": {
+      "original": "tests/half.c",
+      "original_sha256": "0a8b5b0e3ef19fda09b5e9497aa97e77c732f51390ca07db17483d13c081fa23"
+    },
+    "tests/harness.c": {
+      "original": "tests/harness.c",
+      "original_sha256": "6b05674b9d3bdb4215e2d8cf4df1925f566ac84517eea6dee2c03b8155dcd59e"
+    },
+    "tests/i64.c": {
+      "original": "tests/i64.c",
+      "original_sha256": "deb3f5a40cf38b96a653ca7574f661cd7b9ab2b7a265fca12419cbb56ed996f5"
+    },
+    "tests/integer-foundation-cases.h": {
+      "original": "tests/integer-foundation-cases.h",
+      "original_sha256": "c47fa778a372fbec6866a791102a1acda8988c598741bbe0f6d49af897911af6"
+    },
+    "tests/integer-foundation-ops.h": {
+      "original": "tests/integer-foundation-ops.h",
+      "original_sha256": "81062aeac24f4ddac46191905a6061012ed971a48257315b8d5e08dc0c847d15"
+    },
+    "tests/integer-foundations.c": {
+      "original": "tests/integer-foundations.c",
+      "original_sha256": "e1e4756e28af1d7991dcb2f85e6c11d906a071c1a2aacfb624239207db015827"
+    },
+    "tests/knc-approx-encoding.mir": {
+      "original": "tests/knc-approx-encoding.mir",
+      "original_sha256": "efe12ea2ed51ff87f91abe4537e81cc83c0c5dc45d7b71991880a7656870e1e1"
+    },
+    "tests/knc-approx-math.ll": {
+      "original": "tests/knc-approx-math.ll",
+      "original_sha256": "349dd641b5dea7ee63e6cb3cb1bb821b64deeb76736a42dea7fc059d0ad26f19"
+    },
+    "tests/knc-approx-sdk.s": {
+      "original": "tests/knc-approx-sdk.s",
+      "original_sha256": "337595ee30d44f8a03bdcf58c2fb602e79be1ad29fd01d60c23be4e6510d96ba"
+    },
+    "tests/knc-approx.ll": {
+      "original": "tests/knc-approx.ll",
+      "original_sha256": "3b9602bb6064e93119ec393a64a7263d8cad1adafb606f3448853016c901da04"
+    },
+    "tests/knc-autovec-fp-select.ll": {
+      "original": "tests/knc-autovec-fp-select.ll",
+      "original_sha256": "1fb9d8f4b2e1e136aca44b87d3aceec9686929474009a3739ceeecb65955b271"
+    },
+    "tests/knc-autovec-fp.ll": {
+      "original": "tests/knc-autovec-fp.ll",
+      "original_sha256": "f31e32306ff1cea793b53c0dccc9f4f3efe0c9e9d9989fd10094999090bda69f"
+    },
+    "tests/knc-autovec-quantized.ll": {
+      "original": "tests/knc-autovec-quantized.ll",
+      "original_sha256": "00015d72931b118091f37afd115caa5132f6d14633480f54cfa7c68182266b22"
+    },
+    "tests/knc-autovec.ll": {
+      "original": "tests/knc-autovec.ll",
+      "original_sha256": "74c0f1f5298955bd937751d6129ce0c1eab36b53849bae7346e7db9a82679e58"
+    },
+    "tests/knc-bits.ll": {
+      "original": "tests/knc-bits.ll",
+      "original_sha256": "294c3cd7eefba0af9aa756428e6a6536f60fe96cf71001b9ff4c4d3365ded59c"
+    },
+    "tests/knc-contiguous.ll": {
+      "original": "tests/knc-contiguous.ll",
+      "original_sha256": "657b034436349abcbb98b210c55f7377837623aaa9daae922381eb0ba18f26b0"
+    },
+    "tests/knc-disjoint-scatter.ll": {
+      "original": "tests/knc-disjoint-scatter.ll",
+      "original_sha256": "859e78b7f62850325bc9d9797e220bf3fadf3aea222c42ee664934bc1e49201b"
+    },
+    "tests/knc-extended-encoding.mir": {
+      "original": "tests/knc-extended-encoding.mir",
+      "original_sha256": "8dc26b805ebcf0e769a0ba9c2bc6bd94b3277459ec1882ca701b91d3823520b5"
+    },
+    "tests/knc-fp-compare-encoding.mir": {
+      "original": "tests/knc-fp-compare-encoding.mir",
+      "original_sha256": "e65c3e7cba34386d428b7e1434246a8a5c98d119c751cba93d65c757d54bd6eb"
+    },
+    "tests/knc-fp-compare-invalid.mir": {
+      "original": "tests/knc-fp-compare-invalid.mir",
+      "original_sha256": "0c3b9fb068fb4a541839580f2769c7baaec8cdf51e0f01bbbb31450cc1c5e563"
+    },
+    "tests/knc-fp-compare.ll": {
+      "original": "tests/knc-fp-compare.ll",
+      "original_sha256": "88ead75b2003325b380fbb37bce61626859b698880eab47b61afdef77f3d5abd"
+    },
+    "tests/knc-fp-conversion-encoding.mir": {
+      "original": "tests/knc-fp-conversion-encoding.mir",
+      "original_sha256": "70e1ec3b250619ed3ee7e36a417448a7beba303d4977a669e1386785ad1042b4"
+    },
+    "tests/knc-fp-reductions.ll": {
+      "original": "tests/knc-fp-reductions.ll",
+      "original_sha256": "4feb7fb4900613fbfaa236adac4f63b81d3857d0a164f86bd809b4e4ada15615"
+    },
+    "tests/knc-fp-scheduling-workloads.ll": {
+      "original": "tests/knc-fp-scheduling-workloads.ll",
+      "original_sha256": "98ea71cbd11d3ca9ea74a33efd8aa5d6b9a4f3999c2751cfc6bb34405ab467b2"
+    },
+    "tests/knc-fp-scheduling.ll": {
+      "original": "tests/knc-fp-scheduling.ll",
+      "original_sha256": "54356f591c93b25d47051d734764db5a70045c9e139f87c6fd41f44741c0aad4"
+    },
+    "tests/knc-fp-vector-lowering.ll": {
+      "original": "tests/knc-fp-vector-lowering.ll",
+      "original_sha256": "28071845f6aa76d68f9a948da3633f3f25f6937c726cc3c0bb9955ef4102d16b"
+    },
+    "tests/knc-fp-vector-tuning.ll": {
+      "original": "tests/knc-fp-vector-tuning.ll",
+      "original_sha256": "a9018384f5eaa25ad09210dc225a0ef2e8317f95efba9415912a4b9cf77ab2a3"
+    },
+    "tests/knc-fp16.ll": {
+      "original": "tests/knc-fp16.ll",
+      "original_sha256": "083c002fa422b2d6c059cbde2838430af724c4bbb93fe262b460bc62825d0388"
+    },
+    "tests/knc-gaps.ll": {
+      "original": "tests/knc-gaps.ll",
+      "original_sha256": "535c26e2721bfd57c3d1e14abfb04bb035d2fef1db0c5c4ff332c116a7f3a228"
+    },
+    "tests/knc-gisel.ll": {
+      "original": "tests/knc-gisel.ll",
+      "original_sha256": "eba9509d3c41f65204634e00db5eb173d4a700416e4ea346ae356bff0b472cb0"
+    },
+    "tests/knc-half-compositions.ll": {
+      "original": "tests/knc-half-compositions.ll",
+      "original_sha256": "4ca3c9bd5f2accd0f9bdd4ac5126724dfd9699db666ab4c3041974261bad968e"
+    },
+    "tests/knc-half-libcall-abi.ll": {
+      "original": "tests/knc-half-libcall-abi.ll",
+      "original_sha256": "a322b392e74a483d0df31e55422d12334ef88c0919cce05a94fc7d01cc827583"
+    },
+    "tests/knc-i32-f64-encoding.mir": {
+      "original": "tests/knc-i32-f64-encoding.mir",
+      "original_sha256": "cdb372f4ca811f9392510873fe73021ee9e1701542d60af386308a7ecf3fcb45"
+    },
+    "tests/knc-i32-f64-sdk.s": {
+      "original": "tests/knc-i32-f64-sdk.s",
+      "original_sha256": "0fb77a5aa15b2a8eb4d7dfe1e5b59fc82d465e471cd2e50464a0d38898d228a3"
+    },
+    "tests/knc-i64.ll": {
+      "original": "tests/knc-i64.ll",
+      "original_sha256": "0c9526314a0ecae62b70ef716dabe4490db15726404c22326569f747a46f82d4"
+    },
+    "tests/knc-imci-addressing.mir": {
+      "original": "tests/knc-imci-addressing.mir",
+      "original_sha256": "1e45b169563dc3758daea21acb2b652e3f38741e7ef654bfd346eecf16a04548"
+    },
+    "tests/knc-imci-encoding.mir": {
+      "original": "tests/knc-imci-encoding.mir",
+      "original_sha256": "356524f6bdf857321ba3820d5ade005adac260d11f2ed5159a5ac91bf691640e"
+    },
+    "tests/knc-imci.ll": {
+      "original": "tests/knc-imci.ll",
+      "original_sha256": "14c9cc8819731c66d66eaa74ec78b0bdc60fbb3a3f52794a6898fd8c1dbd24d2"
+    },
+    "tests/knc-int-reduce-registers.ll": {
+      "original": "tests/knc-int-reduce-registers.ll",
+      "original_sha256": "c10c1c43a2d6ef3ed528fcd2816d775cf8f8f073133d66f2474dce340e651923"
+    },
+    "tests/knc-integer-foundations.ll": {
+      "original": "tests/knc-integer-foundations.ll",
+      "original_sha256": "cb52c0bd1461c94b2513bced503896117e2afd092ee3755e840a2e65c8f9bfcc"
+    },
+    "tests/knc-load-broadcast.ll": {
+      "original": "tests/knc-load-broadcast.ll",
+      "original_sha256": "e37dcef10174e3ea70d86a22324056e72f3621cd9c73f11a8ef39701fee518ee"
+    },
+    "tests/knc-long-double.ll": {
+      "original": "tests/knc-long-double.ll",
+      "original_sha256": "a6c0dd04d9b363a7e0e8f261c4c6efc5932c7a7d1ba11f0f4c50c2b7c909dc43"
+    },
+    "tests/knc-masked-addrspace.ll": {
+      "original": "tests/knc-masked-addrspace.ll",
+      "original_sha256": "ee8b0b8fcda2786410b6e93a4d8ec294220d6fdf82eae639bc1fed3d32f6274d"
+    },
+    "tests/knc-masked-fp-conversions.ll": {
+      "original": "tests/knc-masked-fp-conversions.ll",
+      "original_sha256": "7dbdc001464e132099c560af4bd0b6c85ac30874fc4478da15948375320009d3"
+    },
+    "tests/knc-masked-widths.ll": {
+      "original": "tests/knc-masked-widths.ll",
+      "original_sha256": "fc74357724ed93db318bcac56f6c2a4ac233c956cd44f62ffcdabb1cf6c93820"
+    },
+    "tests/knc-masked.ll": {
+      "original": "tests/knc-masked.ll",
+      "original_sha256": "400676f53406835f27707b8c212003f36a61d2e93b109266bbe6926a23d7d829"
+    },
+    "tests/knc-math.ll": {
+      "original": "tests/knc-math.ll",
+      "original_sha256": "9f1fd742165249e186085fb43b326df35f5f2e42480323a295212d718c00e017"
+    },
+    "tests/knc-mulhud.mir": {
+      "original": "tests/knc-mulhud.mir",
+      "original_sha256": "23d152c3133a21653fce44fec9dec5359a7035a621b739dd9f6a575f67c435b4"
+    },
+    "tests/knc-native-abi.ll": {
+      "original": "tests/knc-native-abi.ll",
+      "original_sha256": "350317aa9fc400aa1d1359242be1f9addd961e34f14f999af2c7ae58ec3ddb82"
+    },
+    "tests/knc-packed.ll": {
+      "original": "tests/knc-packed.ll",
+      "original_sha256": "ba448a0054f3f917488ee8773365c2d0385beb0903132812e5c48acfcaff94f7"
+    },
+    "tests/knc-predicated.ll": {
+      "original": "tests/knc-predicated.ll",
+      "original_sha256": "a11ecca5c2463add1a77d23030cd03f367ab9f080af08f3db9a71f67329ecab5"
+    },
+    "tests/knc-quantized-foundations.ll": {
+      "original": "tests/knc-quantized-foundations.ll",
+      "original_sha256": "cb97a0b6a3585a7fd465b3b79401256f3c22d919e072c6bcd44cdf0d3f5ef28e"
+    },
+    "tests/knc-quantized.ll": {
+      "original": "tests/knc-quantized.ll",
+      "original_sha256": "dd1428a9508b0e24094cf3effc8fc8ac79449e62ec551da56a7aa2408d85e487"
+    },
+    "tests/knc-saturating-f64.ll": {
+      "original": "tests/knc-saturating-f64.ll",
+      "original_sha256": "8b3d0683fea790968f43231f34766d96a3b8ca540a96981fbf78c7f99bea847b"
+    },
+    "tests/knc-saturating.ll": {
+      "original": "tests/knc-saturating.ll",
+      "original_sha256": "0bc47df195f66e39c12016fd39bff8618844779a826f47f2b8e02a0f9de66126"
+    },
+    "tests/knc-scalar-fp-evaluation.ll": {
+      "original": "tests/knc-scalar-fp-evaluation.ll",
+      "original_sha256": "37ed8ab8e8ba9acbffd1881594787082984723609b83100e34881a21c124e07e"
+    },
+    "tests/knc-scalar-fp.ll": {
+      "original": "tests/knc-scalar-fp.ll",
+      "original_sha256": "31d4cd7990b377cc034dbff2516a5c86a7b7ae4de43a951a65078ed2f24ad5bf"
+    },
+    "tests/knc-scalar-registers.ll": {
+      "original": "tests/knc-scalar-registers.ll",
+      "original_sha256": "1fe2b3d8b124eaab7d7284fe28555ba20dbbb327a70079fae5989aa5d44c2168"
+    },
+    "tests/knc-scalar-spills.ll": {
+      "original": "tests/knc-scalar-spills.ll",
+      "original_sha256": "e154e85cd25762fecd98e9b779bf0cb29c113642b2d0c06b88cea32c8c633549"
+    },
+    "tests/knc-scalar.ll": {
+      "original": "tests/knc-scalar.ll",
+      "original_sha256": "d6130759e6d6522b7eaabdfb7512b0804df31e1b3934ffd07188aa24788e78a9"
+    },
+    "tests/knc-scheduling.ll": {
+      "original": "tests/knc-scheduling.ll",
+      "original_sha256": "89f705d3408afe431a0250322b5f4e671a9a72e0ed1f88823cb853408b1b05cb"
+    },
+    "tests/knc-soft-vector.ll": {
+      "original": "tests/knc-soft-vector.ll",
+      "original_sha256": "aae0fb2b719af9ca2668aa919dda004b1534112cedf2685722298245606d2ad5"
+    },
+    "tests/knc-vaarg.ll": {
+      "original": "tests/knc-vaarg.ll",
+      "original_sha256": "6a3e4e520f5ac0ab13d7e0e5034a91bde9d0e7458922c98ad2dad8da93914354"
+    },
+    "tests/knc-vector-abi-matrix.ll": {
+      "original": "tests/knc-vector-abi-matrix.ll",
+      "original_sha256": "a56b8cc4f758a0409ef84b0b484641401adca3a891768be47fd8e746c5078ba2"
+    },
+    "tests/knc-vector-conversions.ll": {
+      "original": "tests/knc-vector-conversions.ll",
+      "original_sha256": "ff2fc0bf1d71ef069613034f6c81c70310a412a106dd93661a35a48e75256f28"
+    },
+    "tests/knc-vector-costs.ll": {
+      "original": "tests/knc-vector-costs.ll",
+      "original_sha256": "bd8e2be5d327ffc74a91295e97b9c6b2177ae6d24621fb3a33940429ff3567a8"
+    },
+    "tests/knc-vector-div-sqrt.ll": {
+      "original": "tests/knc-vector-div-sqrt.ll",
+      "original_sha256": "01add2c3968003c5cd097c1d1c0ddce523a851430636da9ba18a908c2b6dc1d5"
+    },
+    "tests/knc-vector-select.ll": {
+      "original": "tests/knc-vector-select.ll",
+      "original_sha256": "a3f9d9c608e36cf6344979e013b084961331f61190bd447ef04243ed00f3c7a6"
+    },
+    "tests/knc-vector-values.ll": {
+      "original": "tests/knc-vector-values.ll",
+      "original_sha256": "42de57ba76e0ee33edcf6ab5fc0de2d9699a8f3c920c96b501de4fd7f9e9e414"
+    },
+    "tests/knc-word-encoding.mir": {
+      "original": "tests/knc-word-encoding.mir",
+      "original_sha256": "95196bcb28ed22c0192a4eb2f9b516ca5c3342bef58d6eaba83228c8297085f2"
+    },
+    "tests/knc-word-memory.ll": {
+      "original": "tests/knc-word-memory.ll",
+      "original_sha256": "491aba98e14496d0ea40b1d72dc8c5671d799a34dfddef0b4fbb9ba42ab14c08"
+    },
+    "tests/llama-activation-partition.cpp": {
+      "original": "tests/llama-activation-partition.cpp",
+      "original_sha256": "47870e5a5ef2b0cdb3a0acf937cd314a3c507be27192ecd4742731469b499ba3"
+    },
+    "tests/llama-gather-partition.cpp": {
+      "original": "tests/llama-gather-partition.cpp",
+      "original_sha256": "7694ad32c56d9f3ce971e7c6a0203d98f062c885ae2d43b220b8ef0b4ebab3f4"
+    },
+    "tests/llama-kquant-boundaries.c": {
+      "original": "tests/llama-kquant-boundaries.c",
+      "original_sha256": "8b8de9d68bff66814cf966365c60f018d8f6fb4298ce15644a9fa9bdb211a46c"
+    },
+    "tests/llama-quant-boundaries.c": {
+      "original": "tests/llama-quant-boundaries.c",
+      "original_sha256": "797e6cb3f3d879ea37e279bf90b31cf231f9a11f0a6e7fa0415d549df20187a2"
+    },
+    "tests/load-broadcast-kernels.c": {
+      "original": "tests/load-broadcast-kernels.c",
+      "original_sha256": "a01ded91aa6973614a240df2a4c0a940ccd805a313dbcc64124caf26a1eee520"
+    },
+    "tests/load-broadcast.c": {
+      "original": "tests/load-broadcast.c",
+      "original_sha256": "c7d873da28f68c14236c3876c28c8593b914c05a8af133328f3c1e4a9a8fafcd"
+    },
+    "tests/long-double-kernels.c": {
+      "original": "tests/long-double-kernels.c",
+      "original_sha256": "b601f3e9b5e73888f0758456ea927db2de2cd080ef71b447bc16451a8b0611e7"
+    },
+    "tests/long-double.c": {
+      "original": "tests/long-double.c",
+      "original_sha256": "aa41049d7983352a7817a144e39e2d02ea0e087859fb9a1d44d65e82a02290f0"
+    },
+    "tests/masked-fp-conversion-cases.h": {
+      "original": "tests/masked-fp-conversion-cases.h",
+      "original_sha256": "7720f10c6b556fd5d7c928450302ffa8a39570867f5da7aca35f8a44378f6342"
+    },
+    "tests/masked-fp-conversions.c": {
+      "original": "tests/masked-fp-conversions.c",
+      "original_sha256": "4b792343c978c621752ced704c42455ef3cb038d828ea98e893320a938080a0d"
+    },
+    "tests/masked-widths-cases.h": {
+      "original": "tests/masked-widths-cases.h",
+      "original_sha256": "a85265735c5e9d5d3f24a8d82ef06b5fbd531502c2a27d26898399553b994b3b"
+    },
+    "tests/masked-widths.c": {
+      "original": "tests/masked-widths.c",
+      "original_sha256": "67314a93234e1d7b66af941f47c74beb5a1a483ec3c0a996963d04869c5d269f"
+    },
+    "tests/masked.c": {
+      "original": "tests/masked.c",
+      "original_sha256": "5fe4547067199624060ff7ae91c8cc690f3b241d10421508522ab08dcad174c2"
+    },
+    "tests/minmax-runtime.c": {
+      "original": "tests/minmax-runtime.c",
+      "original_sha256": "7f24305802db1cf57bb89951d014158c232a64508a3fb7279dd3d3888e09c178"
+    },
+    "tests/modern-cpp.cpp": {
+      "original": "tests/modern-cpp.cpp",
+      "original_sha256": "12ccfb53c3c3c150d7e68c69069e456ba2403a4bc4e37bb190d9cf0e253bacf4"
+    },
+    "tests/native-abi.c": {
+      "original": "tests/native-abi.c",
+      "original_sha256": "ac1dd5f44f658ecc1c54af9adbee0c8d3d9d2d2ae2c70d1806021ed008956318"
+    },
+    "tests/optimization-client.c": {
+      "original": "tests/optimization-client.c",
+      "original_sha256": "43c5f732460578cf60c5d68aa8cd2e67639f71b0ec534b7ef69adcc4a78fd02e"
+    },
+    "tests/optimization-kernels.c": {
+      "original": "tests/optimization-kernels.c",
+      "original_sha256": "a914b611a3cb54aff7c73b8f22d7aa91434de04ec9ec473c419c78eb7f0d2914"
+    },
+    "tests/optimization-narrow.c": {
+      "original": "tests/optimization-narrow.c",
+      "original_sha256": "9a4a78bc97ff44e43abba844f5894e67b74bd1bc6ee13c9cfdeeacd8e4194f91"
+    },
+    "tests/packed-cases.h": {
+      "original": "tests/packed-cases.h",
+      "original_sha256": "cf7ecf49e07e81e564a42e729a08f9853770dd1a9f55accedc91fee0a9bbbbca"
+    },
+    "tests/packed.c": {
+      "original": "tests/packed.c",
+      "original_sha256": "2f493bcfb0b3e3e7c68b5b772003d172517b5818802a66aa145e159d62eec7da"
+    },
+    "tests/predicated.c": {
+      "original": "tests/predicated.c",
+      "original_sha256": "564474f73bc281dffa2d5bc070e764259c4940c2657aabb00a58223740c09df7"
+    },
+    "tests/quantized-foundation-cases.h": {
+      "original": "tests/quantized-foundation-cases.h",
+      "original_sha256": "d68e7e8f899f22e033d5f3adf8f8be954b232eefb8b3e53fc7994272f83cb7d6"
+    },
+    "tests/quantized-foundation-ops.h": {
+      "original": "tests/quantized-foundation-ops.h",
+      "original_sha256": "c8a190131dc3c65701086b119c76c47df5841170a7fa63411913c7ac442479cf"
+    },
+    "tests/quantized-foundations.c": {
+      "original": "tests/quantized-foundations.c",
+      "original_sha256": "49e1dbfa5c9d48840c70413baf90511794ca9c112a3f815e13fa438c1c49dcb1"
+    },
+    "tests/quantized.c": {
+      "original": "tests/quantized.c",
+      "original_sha256": "68ce202039d564605790279f422336c03a2cc226edb034c751dd335c86dab71c"
+    },
+    "tests/qwen-bottleneck.c": {
+      "original": "tests/qwen-bottleneck.c",
+      "original_sha256": "db2f9864bdfb53bbac0b829e385ac78850651a72268ba50883b2f3d9974c240a"
+    },
+    "tests/reduction-registers-kernels.c": {
+      "original": "tests/reduction-registers-kernels.c",
+      "original_sha256": "39da7f3660b2e33cc9a4849b91c0c12c3211d200f60c1d588c51e43b3ed4a806"
+    },
+    "tests/reduction-registers.c": {
+      "original": "tests/reduction-registers.c",
+      "original_sha256": "4825539b1d410e21e444a3a0fe4360f12903ab1900e716c5f7cb45c3d4329d90"
+    },
+    "tests/runtime-kernels.c": {
+      "original": "tests/runtime-kernels.c",
+      "original_sha256": "49af64829a5e686c469b2a89235a008c96143b703a0e73ed27dfb91eba493c6f"
+    },
+    "tests/runtime-kernels.cpp": {
+      "original": "tests/runtime-kernels.cpp",
+      "original_sha256": "56952d4bd914f18fb11935f30caa712f20ca91a51582c00e2dbe4e74dbf6e9cd"
+    },
+    "tests/runtime-math.c": {
+      "original": "tests/runtime-math.c",
+      "original_sha256": "6e4fdb3be8d270f0c3863a162ccc900382590e2abbffab664f77b5b31a491244"
+    },
+    "tests/runtime-math.cpp": {
+      "original": "tests/runtime-math.cpp",
+      "original_sha256": "0d76f443615b5d0e771f44bfbfe208c96078d027361879e1ad059aadcfa4b91d"
+    },
+    "tests/saturating-f64.c": {
+      "original": "tests/saturating-f64.c",
+      "original_sha256": "e85296e98844e1a49b5c7aea76f4e80478869a889e7aef20d0c1081fbb757c44"
+    },
+    "tests/saturating.c": {
+      "original": "tests/saturating.c",
+      "original_sha256": "8839b67c8e0fe31e49edc84ae2b692088dfa6e4043d0eed2fc4a192ac2b0ede0"
+    },
+    "tests/scalar-fp-evaluation.c": {
+      "original": "tests/scalar-fp-evaluation.c",
+      "original_sha256": "c13bd043f9bab279c3e7d8cb0aaf7bb7d0525e3bd1c9d9bebf84a52f1cbdc61f"
+    },
+    "tests/scalar-fp-native.c": {
+      "original": "tests/scalar-fp-native.c",
+      "original_sha256": "2d55d41445d36446eab9f6db7841447bc74c34d2f2bf2e1bce6f6a6a4b18101c"
+    },
+    "tests/scalar-int-fp-kernels.c": {
+      "original": "tests/scalar-int-fp-kernels.c",
+      "original_sha256": "af0a23333496bf4b8a24868ce801993ff8795825a69694cb36499128370cb07a"
+    },
+    "tests/scalar-int-fp.c": {
+      "original": "tests/scalar-int-fp.c",
+      "original_sha256": "bc435a368a3175d567aae8b3d43a75122d529f1c81453e85bc4a99cdc17c5ce5"
+    },
+    "tests/scalar-register-kernels.c": {
+      "original": "tests/scalar-register-kernels.c",
+      "original_sha256": "843749d13d2b4e6f271e33b079cf57227435cf24b57a930dae68367a378f338c"
+    },
+    "tests/scalar-registers.c": {
+      "original": "tests/scalar-registers.c",
+      "original_sha256": "50fbaccbc239d6357d5deed76d1ce8000fd07132dd726940ba9fbdff0cd5e7a5"
+    },
+    "tests/scalar-sdk-lanes.c": {
+      "original": "tests/scalar-sdk-lanes.c",
+      "original_sha256": "ea38ba844312c64d7f89369ad9fbd98844706b22c9429c1fd1734281a5bb0150"
+    },
+    "tests/scatter-cases.h": {
+      "original": "tests/scatter-cases.h",
+      "original_sha256": "4b8dca5b4586ee7553062fc55394aedb9aab354ce7da1792de53e7a56367bed9"
+    },
+    "tests/scatter.c": {
+      "original": "tests/scatter.c",
+      "original_sha256": "07c8fdfc902f5e23281e70db4c61d61df45b77d30a8e0642eeff432e30656246"
+    },
+    "tests/scheduling-fp.c": {
+      "original": "tests/scheduling-fp.c",
+      "original_sha256": "ead780123402445c8100f36fda412352155c99a93aa3077511dadbf1abb0414d"
+    },
+    "tests/scheduling.c": {
+      "original": "tests/scheduling.c",
+      "original_sha256": "2f7137e2458860812f4b475f08a9e66a8df5ad44068e44a69abf49013447f299"
+    },
+    "tests/thread-scaling-kernels.c": {
+      "original": "tests/thread-scaling-kernels.c",
+      "original_sha256": "ac4e7fdfc8a488000e648249166e4ba24220baccabd96d0f9a37df82b70051cf"
+    },
+    "tests/thread-scaling.c": {
+      "original": "tests/thread-scaling.c",
+      "original_sha256": "9e5fb0d9278aafe7a5564e0a11acae369432f861a672bbd8013227b6cb0b1e49"
+    },
+    "tests/tuning.c": {
+      "original": "tests/tuning.c",
+      "original_sha256": "f9a45d16b372e7bdbecaab79e79f557ba37b9920d685ea69802c07ae884d3b30"
+    },
+    "tests/validation.c": {
+      "original": "tests/validation.c",
+      "original_sha256": "b4a46cdcfb7cbe4529bc1d5df1211ad8d4b18ad3279014bb9643679a274a0889"
+    },
+    "tests/varargs.c": {
+      "original": "tests/varargs.c",
+      "original_sha256": "faa58a78a1ea852134e69eef8ef3e138644c86f927fafa35d9b7bc534ea55b44"
+    },
+    "tests/vector-abi-cases.h": {
+      "original": "tests/vector-abi-cases.h",
+      "original_sha256": "a114a15c0d30788d9c019368c2f87f9543f0c38440a0629b415bba84f18107ae"
+    },
+    "tests/vector-abi.c": {
+      "original": "tests/vector-abi.c",
+      "original_sha256": "dad97ae9f791280d2d34eca122a7a340bb62203889293cb77154cc7801d12bd2"
+    },
+    "tests/vector-conversion-cases.h": {
+      "original": "tests/vector-conversion-cases.h",
+      "original_sha256": "66b0f6852156b1c88ea48bc7c7c406a193fda81f9c85ff4069e55deb4396ad45"
+    },
+    "tests/vector-conversions.c": {
+      "original": "tests/vector-conversions.c",
+      "original_sha256": "310f72dcb6ca152dde74ff004cfc9ad2377396f0970ce1cf76574aa4a10bbca9"
+    },
+    "tests/vector-div-sqrt-cases.h": {
+      "original": "tests/vector-div-sqrt-cases.h",
+      "original_sha256": "40497f15d04cd7309b48ef3fdcdd1938842485e8fca8817568b56108352d69ea"
+    },
+    "tests/vector-div-sqrt.c": {
+      "original": "tests/vector-div-sqrt.c",
+      "original_sha256": "62ffff6241cc1af76331ff7c60a3c02ac9552a394cdf6524efa41cfd213d4bb6"
+    },
+    "tests/vector-fp.c": {
+      "original": "tests/vector-fp.c",
+      "original_sha256": "8187b74e26548c198dc94efea35532ff39992c6b2eea7dab36ddfac595063070"
+    },
+    "tests/vector-ieee.c": {
+      "original": "tests/vector-ieee.c",
+      "original_sha256": "8bfe1c7d923238d84a76da714a39f9743becd53285c31712f530fc6dc5ca6fe2"
+    },
+    "tests/vector-select.c": {
+      "original": "tests/vector-select.c",
+      "original_sha256": "bb907e0a13fbc7f416b56cc2bc19879aab18a1ba49059830d7705df825d049dd"
+    },
+    "tests/vector-values.c": {
+      "original": "tests/vector-values.c",
+      "original_sha256": "b59dcebebe86fca51bf11b06c0c29d818cf3e4c7edfbb8a918f721b707091ee8"
+    },
+    "tests/knl-rows4.c": {
+      "original": "tests/knl-rows4.c",
+      "original_sha256": "f25ee84d40fd973ebdae30e0759cb08b9237d8c3266597d293546aa6661eedb5"
+    },
+    "tests/knl-dispatch.c": {
+      "original": "tests/knl-dispatch.c",
+      "original_sha256": "e82e08352ba25521cb8270e27313c9970d2029fbdf584b7e85c0c51a566ec264"
+    },
+    "tests/knc-two-card-comm.cpp": {
+      "original": "tests/knc-two-card-comm.cpp",
+      "original_sha256": "eb1cc71451742c3df6d4ebb9cefa7ec4179dbd43f9ec1e2b478ce3e499de619f"
+    },
+    "tests/two-card-compute.c": {
+      "original": "tests/two-card-compute.c",
+      "original_sha256": "05ee6662b2d8132ee08809d60891a27118991a777b9fb313f7e756bd3bce1970"
+    },
+    "tests/knc-affinity-exec.c": {
+      "original": "tests/knc-affinity-exec.c",
+      "original_sha256": "5e8eec619744cafa7c826df68e9477fd5a28af843d6210182e19ccb1168caf5a"
+    },
+    "tests/knc-prefetch.c": {
+      "original": "tests/knc-prefetch.c",
+      "original_sha256": "b7133bc11d43b3a3c75775b4dc1508933607df79947a7ed582e08f2e1d7f77c1"
+    },
+    "tests/knc-prefetch-sdk.s": {
+      "original": "tests/knc-prefetch-sdk.s",
+      "original_sha256": "5c0f9fcc3cb38a09b1cf27871230656d37122fe1167cd60c94b79407d1c1dce4"
+    },
+    "tests/qwen35-logit-diagnostic.cpp": {
+      "original": "tests/qwen35-logit-diagnostic.cpp",
+      "original_sha256": "4b3340fa38659127e3ed345fb7cb2246f964625930b05a961f58c344f052e106"
+    },
+    "scripts/ieee_oracle.py": {
+      "original": "scripts/ieee_oracle.py",
+      "original_sha256": "50e16df9e7f97f95c157585751f0fdfce59c1e4de6bc52e90a45ae149501eee6"
+    },
+    "scripts/fp80_oracle.py": {
+      "original": "scripts/fp80_oracle.py",
+      "original_sha256": "1eec7aa09bbcf0e498aaf26fda7d49999883cab8107a8d242a271f0f04868458"
+    },
+    "scripts/mpfr_oracle.py": {
+      "original": "scripts/mpfr_oracle.py",
+      "original_sha256": "6a67cb5ddbf837ff3bae3eef60ad4f0e2038a19df651482c83f16859c312f1cd"
+    },
+    "scripts/prepare-link-symbols.py": {
+      "original": "scripts/prepare-link-symbols.py",
+      "original_sha256": "2893760d56a3647261788fe55d3f4e7f0aa8d14e14d2691031937833aeb5ec3d"
+    },
+    "scripts/rustc-knc-autovec": {
+      "original": "scripts/rustc-knc-autovec",
+      "original_sha256": "9a2117c324c360504a7afb73ea2576bb44887dac7309b6530183cf6f77dadd4e"
+    },
+    "scripts/build-compiler-rt.py": {
+      "original": "scripts/build-compiler-rt.py",
+      "original_sha256": "ab271ee3c781a65c6a350b69156046f5dd3bf65870f4cc501feecc3c3428264d"
+    },
+    "scripts/build-libstdcxx.py": {
+      "original": "scripts/build-libstdcxx.py",
+      "original_sha256": "4d6645724b70badca8da1321619ab57fb0e262a249a352c373cc92e85fd0fcbb"
+    },
+    "scripts/generate-vector-fp-corpus.py": {
+      "original": "scripts/generate-vector-fp-corpus.py",
+      "original_sha256": "56dda2ab86858f57dfda949cbead77428f58d4e0e22970956206c06e41c3b807"
+    },
+    "scripts/generate-vector-div-sqrt-tests.py": {
+      "original": "scripts/generate-vector-div-sqrt-tests.py",
+      "original_sha256": "815be9a787c609a4b6b6fd7a918f673346ec0f36be7608f30ad6c41152e5c39e"
+    },
+    "scripts/generate-half-corpus.py": {
+      "original": "scripts/generate-half-corpus.py",
+      "original_sha256": "a0a0b3ede3ad951bd069ca32eff52cf51365199dadb7cb5a82384e27a1acffc0"
+    },
+    "scripts/generate-fp-compare-tests.py": {
+      "original": "scripts/generate-fp-compare-tests.py",
+      "original_sha256": "4856c48be601b7aab89c569f56e23e1eb2bf3fe04a03490277e11e373c13b1d1"
+    },
+    "scripts/generate-masked-width-tests.py": {
+      "original": "scripts/generate-masked-width-tests.py",
+      "original_sha256": "587c371855c1ed5c60b8d62ff4bb188bc28d92e62308508da659bbf2b48f42db"
+    },
+    "scripts/generate-contiguous-tests.py": {
+      "original": "scripts/generate-contiguous-tests.py",
+      "original_sha256": "95c040e90ee3b1f4fc70965ff2e6a3b0ab61473a56470a2efdbcd3ec9965b0b9"
+    },
+    "scripts/generate-half-compositions.py": {
+      "original": "scripts/generate-half-compositions.py",
+      "original_sha256": "bb1c02e14196af757e640f8bc87751a4f6124152de9f192e9c1bf2a6c0822d24"
+    },
+    "scripts/generate-fp-corpus.py": {
+      "original": "scripts/generate-fp-corpus.py",
+      "original_sha256": "bd9116b7382f047d151f45cbfe433146619f457c0d9b5a1c2183624066329a05"
+    },
+    "scripts/generate-optimization-corpus.py": {
+      "original": "scripts/generate-optimization-corpus.py",
+      "original_sha256": "d761e66fc6928d26e61087008a79a86dc0de58992e7f067c5a6c58f18254d00a"
+    },
+    "scripts/generate-vector-conversion-tests.py": {
+      "original": "scripts/generate-vector-conversion-tests.py",
+      "original_sha256": "6950ab34c46457a1273376a4ab8afd3285698cbf935cff7e224a61193cea6fee"
+    },
+    "scripts/generate-approx-tests.py": {
+      "original": "scripts/generate-approx-tests.py",
+      "original_sha256": "1458bf01bf900c03d90834f22f55df1d8af255ef301d28cd523909e3710d31fd"
+    },
+    "scripts/generate-masked-fp-conversions.py": {
+      "original": "scripts/generate-masked-fp-conversions.py",
+      "original_sha256": "130cc0897ac21ca61dc4e0d955008f31550fed734f18b1842ca43172045e72f5"
+    },
+    "scripts/generate-fp-vector-tuning.py": {
+      "original": "scripts/generate-fp-vector-tuning.py",
+      "original_sha256": "9776c7ef8fbfcb89d268e3837bae3c9f6724b462661da32071e3abe27f683e5f"
+    },
+    "scripts/generate-quantized-foundations.py": {
+      "original": "scripts/generate-quantized-foundations.py",
+      "original_sha256": "5d078c7c7eed50aedb7b4748d0664fc5c6799175f5604ec4eccc723521de45ad"
+    },
+    "scripts/generate-long-double.py": {
+      "original": "scripts/generate-long-double.py",
+      "original_sha256": "ed84c635f03b393c22f28bb754102c227c38d162eb875e249d53cb148868517d"
+    },
+    "scripts/generate-fp-scheduling.py": {
+      "original": "scripts/generate-fp-scheduling.py",
+      "original_sha256": "35ceba7d22f94cd54aa8dab3902d584128c3b6605bd8af8de3a678fc7cdd113d"
+    },
+    "scripts/generate-sat64-tests.py": {
+      "original": "scripts/generate-sat64-tests.py",
+      "original_sha256": "6e0ee29faace50fafab1501b11f40d736574010092d105c594c7bec6dc7c2892"
+    },
+    "scripts/generate-scatter-tests.py": {
+      "original": "scripts/generate-scatter-tests.py",
+      "original_sha256": "0c47983e522c7ec8bf2e5602b9e186da828a6f0aa4a42938b00fa2c368d70f64"
+    },
+    "scripts/generate-runtime-kernels.py": {
+      "original": "scripts/generate-runtime-kernels.py",
+      "original_sha256": "7eec79bd0e223d11875edba1c538eb49dd9d21bc7e0d3df2f87cee080a9002b9"
+    },
+    "scripts/generate-scalar-registers.py": {
+      "original": "scripts/generate-scalar-registers.py",
+      "original_sha256": "d5c24c363c416e28f499be5d1316da35a7d3a0dce43d81bed4fb4dad87c2119a"
+    },
+    "scripts/generate-packed-tests.py": {
+      "original": "scripts/generate-packed-tests.py",
+      "original_sha256": "c24aea553f0deccb997d343842ba1c459319ae5438c8cde1fa0b169feb07ca0b"
+    },
+    "scripts/generate-scalar-fp-evaluation.py": {
+      "original": "scripts/generate-scalar-fp-evaluation.py",
+      "original_sha256": "f236ebb8a8d78fbd636eb7f78daac55dbda95a44cf11dcc7ed606f9fc5153c15"
+    },
+    "scripts/generate-vector-abi-tests.py": {
+      "original": "scripts/generate-vector-abi-tests.py",
+      "original_sha256": "0e9aa1f8d2d788793166152c8cf8dd91c2014dc3b04054e1a59bd720a059aa78"
+    },
+    "scripts/generate-runtime-math.py": {
+      "original": "scripts/generate-runtime-math.py",
+      "original_sha256": "7346c944469299bc09ea49de7d0859a83277998d258df0361cd071f3559cb7ee"
+    },
+    "scripts/generate-i64-tests.py": {
+      "original": "scripts/generate-i64-tests.py",
+      "original_sha256": "82de9de223bfc8acf193b62453bd0cc5c64e8c68308b1cbb3a712d2dc5da583e"
+    },
+    "scripts/generate-fp-reductions.py": {
+      "original": "scripts/generate-fp-reductions.py",
+      "original_sha256": "6dd6332939d305f65ae5a3a5e91c8223903a7533dd2e5e5d21e51dcbd00951d4"
+    },
+    "capabilities/k1om.json": {
+      "original": "capabilities/k1om.json",
+      "original_sha256": "0eb7130c8a25e4fdd0564c96bc20ca3b4418a8d62a1091666fcb9719641d9e5a"
+    }
+  }
+}

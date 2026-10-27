@@ -1,0 +1,38 @@
+name: source-and-toolchain
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      build_llvm:
+        description: Build LLVM and run codegen tests
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  source:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - run: python3 scripts/phi.py test-host
+      - run: python3 scripts/phi.py check-release
+      - run: python3 scripts/phi.py fetch llvm
+      - run: python3 scripts/phi.py fetch llama
+      - run: python3 scripts/phi.py test-patches
+  compiler:
+    if: github.event_name == 'workflow_dispatch' && inputs.build_llvm
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    env:
+      PHI_JOBS: '2'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - run: python3 scripts/phi.py fetch llvm
+      - run: python3 scripts/phi.py build-llvm
+      - run: python3 scripts/phi.py test-codegen

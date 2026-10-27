@@ -1,0 +1,21 @@
+{
+  "upstream": "https://musl.libc.org/releases/musl-1.2.5.tar.gz",
+  "release": "1.2.5",
+  "archive_sha256": "a9a118bbe84d8764da0ea0d28b3ab3fae8477fc7e4085d90102b8596fc7c75e4",
+  "unmodified_files": {
+    "src/math/__rem_pio2_large.c": "b97f19fb5951c83a0c10506fab35646caefde13bd03100ad2af55ef00af0b9fb",
+    "src/math/__cos.c": "3f0f774aab60a18d7ef935ffdf121bcda17cbadabff14096c614da22e31a42c1",
+    "src/math/sin.c": "24e53a9d85f196f66919cc19247be5480bb607ef38844b1a24bc47c4fe4974ef",
+    "src/math/cosf.c": "33cf828e8e733da2b72c723b9ff20057b9a4f10df72a3923dadcb626c23d222c",
+    "src/math/sinf.c": "2583af55446f07da3225186c368a7aae5a0a0a0edab268967f4122b92e222b87",
+    "src/math/__sindf.c": "de7026bcd159b7d06a8cbcc162df722014f3b1a3cc4183116b6b7829eef1d118",
+    "src/math/__rem_pio2.c": "938329e0939cd83ee2185a52154b41242f618d4a6df1b08395f344da33d4f1e6",
+    "src/math/__sin.c": "f3a37ef9bcfb8a2f9c809d8c7f1aa2c17c8c3319ad7fb2fe7c0a6284ea8859d2",
+    "src/math/__cosdf.c": "0ba872cc7e26b93bb9784d19fee84b263e1fa3543a76ec3c0893aea47453a2a7",
+    "src/math/cos.c": "3a74e054057d636fa494bdd76a53a40db5cee618264f6ab31cb0538ba63c6bda",
+    "src/math/__rem_pio2f.c": "b73a0219ba4a34e39ed904b5008126ff1b12dfa1a4a380941363c8db5088d756",
+    "src/internal/libm.h": "d5a11757541471030d8f4bf7a39a29de35732ecbb291b2f45bf03296be4f25a2",
+    "COPYRIGHT": "f9bc4423732350eb0b3f7ed7e91d530298476f8fec0c6c427a1c04ade22655af"
+  },
+  "adaptation": "Local fp_arch.h supplies internal symbol namespacing and visibility; public sin/cos remain standard scalar native ABI. Build disables contraction and builtin substitution."
+}

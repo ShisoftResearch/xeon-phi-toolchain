@@ -1,0 +1,3 @@
+#include <stdint.h>
+void clang_fp32(const uint32_t *a,const uint32_t *b,uint32_t *out,unsigned op){float x,y,z;__builtin_memcpy(&x,a,4);__builtin_memcpy(&y,b,4);switch(op){case 0:z=x+y;break;case 1:z=x-y;break;case 2:z=x*y;break;case 3:z=x/y;break;case 4:z=x<y?x:y;break;default:z=__builtin_sqrtf(x);break;}__builtin_memcpy(out,&z,4);}
+void clang_fp64(const uint64_t *a,const uint64_t *b,uint64_t *out,unsigned op){double x,y,z;__builtin_memcpy(&x,a,8);__builtin_memcpy(&y,b,8);switch(op){case 0:z=x+y;break;case 1:z=x-y;break;case 2:z=x*y;break;case 3:z=x/y;break;case 4:z=x<y?x:y;break;default:z=__builtin_sqrt(x);break;}__builtin_memcpy(out,&z,8);}

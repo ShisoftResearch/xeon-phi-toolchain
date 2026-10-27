@@ -1,0 +1,25 @@
+# RUN: llc -mcpu=knc -start-after=virtregrewriter -filetype=obj %s -o %t
+# RUN: llvm-readobj --hex-dump=.text %t | FileCheck %s
+# Independently assembled with MPSS K1OM binutils, including compressed disp8.
+# CHECK: 62f27878 d01762f2 7878d457 20624278
+# CHECK-NEXT: {{.*}}68d03c24 62427868 d47c2420 62f27968
+# CHECK-NEXT: {{.*}}d0176242 7968d47c 2420c3
+--- |
+  target triple = "x86_64-unknown-linux-gnu"
+  define void @word_encoding() #0 { ret void }
+  attributes #0 = { "target-cpu"="knc" }
+...
+---
+name: word_encoding
+tracksRegLiveness: true
+body: |
+  bb.0:
+    liveins: $rdi, $r12
+    $zmm2 = KNC_UNPACKL_S16 $rdi
+    $zmm2 = KNC_UNPACKH_S16 $zmm2, $rdi
+    $zmm31 = KNC_UNPACKL_U16 $r12
+    $zmm31 = KNC_UNPACKH_U16 $zmm31, $r12
+    KNC_PACKL_U16 $rdi, $zmm2
+    KNC_PACKH_U16 $r12, $zmm31
+    RET 0
+...

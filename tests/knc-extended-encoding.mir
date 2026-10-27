@@ -1,0 +1,123 @@
+# RUN: llc -mcpu=knc -start-after=virtregrewriter -filetype=obj %s -o %t
+# RUN: llvm-readobj --hex-dump=.text %t | FileCheck %s
+# Bytes independently assembled with MPSS binutils.
+# CHECK: 62f17908 fad162f1 7908dbd1 62f17908
+# CHECK: ebd162f1 7908efd1 62f27908 47d162f2
+# CHECK: 790845d1 62f27908 46d162f2 79083bd1
+# CHECK: 62f27908 3fd162f2 790839d1 62f27908
+# CHECK: 3dd162f2 790836d1 62f37908 1fc90162
+# CHECK: f379081e c90162f2 790964d1 62827901
+# CHECK: 9004bc62 827901a0 44bd0062 f2690898
+# CHECK: c162f2e9 0898c162 f37808cb c80062f3
+# CHECK: 7808cac8 0062f379 08cbc803 62f37908
+# CHECK: cac80362 f27858d0 0662f278 58d44640
+# CHECK: 62f27848 d00662f2 7848d446 4062f279
+# CHECK: 48d00762 f27948d4 4740c3
+--- |
+  ; ModuleID = 'tests/knc-imci.ll'
+  source_filename = "tests/knc-imci.ll"
+  target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+  target triple = "x86_64-unknown-linux-gnu"
+
+  ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+  declare void @llvm.x86.knc.vadd.i32(ptr, ptr, ptr) #0
+
+  define void @knc_add(ptr %out, ptr %lhs, ptr %rhs) #1 {
+    call void @llvm.x86.knc.vadd.i32(ptr %out, ptr %lhs, ptr %rhs)
+    ret void
+  }
+
+  attributes #0 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) "target-cpu"="knc" }
+  attributes #1 = { "target-cpu"="knc" }
+...
+---
+name:            knc_add
+alignment:       1
+exposesReturnsTwice: false
+legalized:       false
+regBankSelected: false
+selected:        false
+failedISel:      false
+tracksRegLiveness: true
+hasWinCFI:       false
+noPhis:          true
+isSSA:           false
+noVRegs:         true
+hasFakeUses:     false
+callsEHReturn:   false
+callsUnwindInit: false
+hasEHContTarget: false
+hasEHScopes:     false
+hasEHFunclets:   false
+isOutlined:      false
+debugInstrRef:   true
+failsVerification: false
+tracksDebugUserValues: true
+registers:       []
+liveins:
+  - { reg: '$rsp', virtual-reg: '' }
+  - { reg: '$r12', virtual-reg: '' }
+  - { reg: '$r13', virtual-reg: '' }
+frameInfo:
+  isFrameAddressTaken: false
+  isReturnAddressTaken: false
+  hasStackMap:     false
+  hasPatchPoint:   false
+  stackSize:       0
+  offsetAdjustment: 0
+  maxAlignment:    1
+  adjustsStack:    false
+  hasCalls:        false
+  framePointerPolicy: none
+  stackProtector:  ''
+  functionContext: ''
+  maxCallFrameSize: 4294967295
+  cvBytesOfCalleeSavedRegisters: 0
+  hasOpaqueSPAdjustment: false
+  hasVAStart:      false
+  hasMustTailInVarArgFunc: false
+  hasTailCall:     false
+  isCalleeSavedInfoValid: false
+  localFrameSize:  0
+fixedStack:      []
+stack:           []
+entry_values:    []
+callSites:       []
+debugValueSubstitutions: []
+constants:       []
+machineFunctionInfo:
+  amxProgModel:    None
+body: |
+  bb.0 (%ir-block.0):
+    liveins: $rsi, $rdi, $r12, $r13, $k1, $zmm16, $zmm31, $zmm0, $zmm1, $zmm2
+    $zmm2 = KNC_VPSUBDrr $zmm0, $zmm1
+    $zmm2 = KNC_VPANDDrr $zmm0, $zmm1
+    $zmm2 = KNC_VPORDrr $zmm0, $zmm1
+    $zmm2 = KNC_VPXORDrr $zmm0, $zmm1
+    $zmm2 = KNC_VPSLLVDrr $zmm0, $zmm1
+    $zmm2 = KNC_VPSRLVDrr $zmm0, $zmm1
+    $zmm2 = KNC_VPSRAVDrr $zmm0, $zmm1
+    $zmm2 = KNC_VPMINUDrr $zmm0, $zmm1
+    $zmm2 = KNC_VPMAXUDrr $zmm0, $zmm1
+    $zmm2 = KNC_VPMINSDrr $zmm0, $zmm1
+    $zmm2 = KNC_VPMAXSDrr $zmm0, $zmm1
+    $zmm2 = KNC_VPERMDrr $zmm0, $zmm1
+    $k1 = KNC_VPCMPD $zmm0, $zmm1, 1
+    $k1 = KNC_VPCMPUD $zmm0, $zmm1, 1
+    $zmm2 = KNC_VPBLENDMD $zmm0, $zmm1, $k1
+    $zmm16 = KNC_VPGATHERDD $zmm16, $r12, $zmm31, implicit-def $k1, implicit $k1
+    KNC_VPSCATTERDD $r13, $zmm31, $zmm16, implicit-def $k1, implicit $k1
+    $zmm0 = KNC_VFMADD132PS $zmm0, $zmm2, $zmm1
+    $zmm0 = KNC_VFMADD132PD $zmm0, $zmm2, $zmm1
+    $zmm1 = KNC_CVT_I32_F32 $zmm0
+    $zmm1 = KNC_CVT_U32_F32 $zmm0
+    $zmm1 = KNC_CVT_F32_I32 $zmm0
+    $zmm1 = KNC_CVT_F32_U32 $zmm0
+    $zmm0 = KNC_UNPACKL_S8 $rsi
+    $zmm0 = KNC_UNPACKH_S8 $zmm0, $rsi
+    $zmm0 = KNC_UNPACKL_U8 $rsi
+    $zmm0 = KNC_UNPACKH_U8 $zmm0, $rsi
+    KNC_PACKL_U8 $rdi, $zmm0
+    KNC_PACKH_U8 $rdi, $zmm0
+    RET 0
+...

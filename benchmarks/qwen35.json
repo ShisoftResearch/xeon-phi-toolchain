@@ -1,0 +1,74 @@
+{
+  "status": "historical_measurements",
+  "date": "2026-10-27",
+  "llama_revision": "63b4b303bd87456adc2f09d56c7e1f74e9e26673",
+  "compiler_sha256": "502618e2b0cc9a9acb4af01eff68946214e3b7e22b9c1f094a39fcdc3c8ad227",
+  "llvm_patch_sha256": "b1e321ca0ed7172fe888c49b30942bb33c81474e2166b45030edb64684600419",
+  "workload": {
+    "format": "Qwen3.5 Q4_0 GGUF",
+    "prompt": "In one sentence, explain why the sky appears blue.",
+    "prompt_tokens": 23,
+    "context": 256,
+    "batch": 32,
+    "microbatch": 32,
+    "max_generated_tokens": 32,
+    "temperature": 0,
+    "repetitions": 3
+  },
+  "models": {
+    "0.8b": {
+      "model_sha256": "444406ddd926550c724ec18d5120a9d40ded44908a063b0e66e9a7e5464c652c",
+      "knc": {
+        "decode_tokens_s": 9.8701596418724,
+        "prompt_tokens_s": 24.49805613250253,
+        "checkpoint": "matrix-tile/native-prefetch"
+      },
+      "knl": {
+        "cpu": "Xeon Phi 7210",
+        "profile": "repack",
+        "decode_workers": 64,
+        "prompt_workers": 128,
+        "decode_tokens_s": 32.46617234301035,
+        "prompt_tokens_s": 90.0301405253063
+      }
+    },
+    "4b": {
+      "model_sha256": "298fcb5fe7a77ccc79745ae24751560c5ac56874caff4bb39b1f2055bd72b8bb",
+      "knc": {
+        "decode_tokens_s": 3.0807545264731226,
+        "prompt_tokens_s": 6.966783587469482,
+        "checkpoint": "earlier model-size benchmark"
+      },
+      "knl": {
+        "cpu": "Xeon Phi 7210",
+        "profile": "rows4",
+        "decode_workers": 128,
+        "prompt_workers": 128,
+        "decode_tokens_s": 9.83516267359062,
+        "prompt_tokens_s": 21.10285347279567
+      }
+    },
+    "9b": {
+      "model_sha256": "17670346b4260ddcb0173965145155885024f3c9a4a24389a3370751edbcde24",
+      "knc": {
+        "decode_tokens_s": 2.66192843405405,
+        "prompt_tokens_s": 5.075313235092922,
+        "checkpoint": "matrix-tile/native-prefetch"
+      },
+      "knl": {
+        "cpu": "Xeon Phi 7210",
+        "profile": "rows4",
+        "decode_workers": 128,
+        "prompt_workers": 128,
+        "decode_tokens_s": 6.858223377234127,
+        "prompt_tokens_s": 12.117827431600134
+      }
+    }
+  },
+  "limits": [
+    "One healthy KNC card versus KNL host; not two-card aggregate throughput",
+    "KNC 4B measurements predate later KNC kernel improvements",
+    "Generated token counts/output may differ; no general numerical or model-quality equivalence is established",
+    "Historical workload measurements, not a performance ceiling; weights/raw private hardware logs are not distributed"
+  ]
+}

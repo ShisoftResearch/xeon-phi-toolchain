@@ -1,0 +1,11 @@
+[package]
+name = "knc-optimization-kernels"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["rlib"]
+
+[profile.release]
+panic = "abort"
+codegen-units = 1

@@ -1,0 +1,28 @@
+# RUN: llc -mcpu=knc -start-after=virtregrewriter -filetype=obj %s -o %t
+# RUN: llvm-readobj --hex-dump=.text %t | FileCheck %s
+# Independent MPSS assembler: tests/knc-i32-f64-sdk.s
+# CHECK: 62f17a08 e6d16221 7a08e6f9 62f17a08
+# CHECK-NEXT: {{.*}}7ad16221 7a087af9 62f3fb08 e6d10362
+# CHECK-NEXT: {{.*}}23fb08e6 f90362f3 fb08cad1 036223fb
+# CHECK-NEXT: {{.*}}08caf903 c3
+--- |
+  target triple = "x86_64-unknown-linux-gnu"
+  define void @i32_f64_encoding() #0 { ret void }
+  attributes #0 = { "target-cpu"="knc" }
+...
+---
+name: i32_f64_encoding
+tracksRegLiveness: true
+body: |
+  bb.0:
+    liveins: $zmm1, $zmm17
+    $zmm2 = KNC_CVT_I32_F64 $zmm1
+    $zmm31 = KNC_CVT_I32_F64 $zmm17
+    $zmm2 = KNC_CVT_U32_F64 $zmm1
+    $zmm31 = KNC_CVT_U32_F64 $zmm17
+    $zmm2 = KNC_CVT_F64_I32 $zmm1
+    $zmm31 = KNC_CVT_F64_I32 $zmm17
+    $zmm2 = KNC_CVT_F64_U32 $zmm1
+    $zmm31 = KNC_CVT_F64_U32 $zmm17
+    RET 0
+...

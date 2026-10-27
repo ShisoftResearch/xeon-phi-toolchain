@@ -1,0 +1,141 @@
+/* Contract tests shared by C11, C++17, host planning and the K1OM target. */
+#include <k1om/capabilities.h>
+#include <stdio.h>
+#include <string.h>
+#if defined(__k1om__) && (defined(__SSE__) || defined(__SSE2__) || defined(__AVX__) || defined(__AVX2__) || defined(__AVX512F__))
+#error The capability header must not advertise another ISA
+#endif
+
+#ifdef __cplusplus
+constexpr k1om_requirement add_request={K1OM_OP_ADD,K1OM_TYPE_I32,K1OM_TYPE_I32,16,16,0,K1OM_LAYOUT_NONE,K1OM_PROP_WRAP,0};
+constexpr auto add_match=k1om_catalog_query(add_request,K1OM_ALLOW_NATIVE);
+static_assert(add_match.status==K1OM_MATCH_OK && add_match.path==K1OM_PATH_NATIVE,"native K1OM i32 addition");
+constexpr auto absent=k1om_catalog_query(k1om_require(K1OM_OP_NATIVE_BYTE_DOT,K1OM_TYPE_I8,K1OM_TYPE_I32,64,16),K1OM_ALLOW_ANY);
+static_assert(absent.status==K1OM_MATCH_NATIVE_ABSENT,"an absent instruction must not acquire an emulation path");
+#endif
+
+static unsigned checks;
+static int check(k1om_requirement r,unsigned policy,unsigned status,unsigned path,int line){
+ k1om_match m=k1om_catalog_query(r,policy);++checks;
+ if(m.status!=status || m.path!=path){
+  printf("FAIL capability line=%d status=%u expected=%u path=%u expected=%u: %s\n",line,m.status,status,m.path,path,k1om_match_diagnostic(m.status));return 1;
+ }
+ return 0;
+}
+#define EXPECT(R,P,S,T) do {if(check((R),(P),(S),(T),__LINE__))return 1;}while(0)
+#define FAILS(R,P,S) EXPECT(R,P,S,K1OM_PATH_NONE)
+#define OK(R,P,T) EXPECT(R,P,K1OM_MATCH_OK,T)
+int main(void){
+ k1om_requirement r=k1om_require(K1OM_OP_ADD,K1OM_TYPE_I32,K1OM_TYPE_I32,16,16);
+ r.properties=K1OM_PROP_WRAP;
+ OK(r,K1OM_ALLOW_NATIVE,K1OM_PATH_NATIVE);
+ FAILS(r,K1OM_ALLOW_RUNTIME,K1OM_MATCH_PATH_DISALLOWED);
+ r.properties=K1OM_PROP_SIGNED_SATURATION;
+ FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_SEMANTICS_UNVERIFIED);
+ r=k1om_require(K1OM_OP_ADD,K1OM_TYPE_I64,K1OM_TYPE_I64,8,8);
+ OK(r,K1OM_ALLOW_COMPOSED,K1OM_PATH_COMPOSED);
+ FAILS(r,K1OM_ALLOW_NATIVE,K1OM_MATCH_PATH_DISALLOWED);
+ r.input_lanes=7;FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_SHAPE_UNVERIFIED);
+ r=k1om_require(K1OM_OP_SDIV,K1OM_TYPE_I32,K1OM_TYPE_I32,16,16);
+ FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_PRECONDITION_REQUIRED);
+ r.assumptions=K1OM_ASSUME_NONZERO_DIVISOR;
+ FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_PRECONDITION_REQUIRED);
+ r.assumptions|=K1OM_ASSUME_NO_SIGNED_DIV_OVERFLOW;
+ OK(r,K1OM_ALLOW_COMPOSED,K1OM_PATH_COMPOSED);
+ r=k1om_require(K1OM_OP_SHL,K1OM_TYPE_I32,K1OM_TYPE_I32,16,16);
+ FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_PRECONDITION_REQUIRED);
+ r.assumptions=K1OM_ASSUME_SHIFT_IN_RANGE;OK(r,K1OM_ALLOW_NATIVE,K1OM_PATH_NATIVE);
+ r.properties=K1OM_PROP_OVERSHIFT_ZERO;FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_SEMANTICS_UNVERIFIED);
+ r=k1om_require(K1OM_OP_LOAD_EXTEND_S,K1OM_TYPE_I16,K1OM_TYPE_I32,16,16);
+ r.layout=K1OM_LAYOUT_CONTIGUOUS;r.assumptions=K1OM_ASSUME_ACTIVE_MEMORY_VALID;r.alignment=1;
+ FAILS(r,K1OM_ALLOW_NATIVE,K1OM_MATCH_PATH_DISALLOWED);
+ OK(r,K1OM_ALLOW_COMPOSED,K1OM_PATH_COMPOSED);
+ r.alignment=2;OK(r,K1OM_ALLOW_NATIVE,K1OM_PATH_NATIVE);
+ r.alignment=0;FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_ALIGNMENT_REQUIRED);
+ r.alignment=3;FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_INVALID);
+ r=k1om_require(K1OM_OP_FP_FMA,K1OM_TYPE_F32,K1OM_TYPE_F32,16,16);
+ r.properties=K1OM_PROP_FP_FUSED_VALUE;
+ FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_PRECONDITION_REQUIRED);
+ r.assumptions=K1OM_ASSUME_DEFAULT_FP_ENV;OK(r,K1OM_ALLOW_NATIVE,K1OM_PATH_NATIVE);
+ r.properties|=K1OM_PROP_FP_EXCEPTION_STATE;
+ FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_SEMANTICS_UNVERIFIED);
+ r=k1om_require(K1OM_OP_FP_MINIMUM,K1OM_TYPE_F32,K1OM_TYPE_F32,16,16);
+ r.assumptions=K1OM_ASSUME_DEFAULT_FP_ENV;r.properties=K1OM_PROP_SIGNED_ZERO_ORDER|K1OM_PROP_NAN_PROPAGATES;
+ OK(r,K1OM_ALLOW_COMPOSED,K1OM_PATH_COMPOSED);
+ FAILS(r,K1OM_ALLOW_NATIVE,K1OM_MATCH_PATH_DISALLOWED);
+ r=k1om_require(K1OM_OP_FP_DIV,K1OM_TYPE_F64,K1OM_TYPE_F64,8,8);r.assumptions=K1OM_ASSUME_DEFAULT_FP_ENV;
+ FAILS(r,K1OM_ALLOW_DEFAULT,K1OM_MATCH_PATH_DISALLOWED);
+ OK(r,K1OM_ALLOW_RUNTIME,K1OM_PATH_RUNTIME);
+ r.properties=K1OM_PROP_FP_APPROX_4ULP;
+ FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_PRECONDITION_REQUIRED);
+ r.assumptions|=K1OM_ASSUME_ALLOW_APPROXIMATE_MATH;
+ FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_PRECONDITION_REQUIRED);
+ r.assumptions|=K1OM_ASSUME_ALLOW_RECIPROCAL;
+ OK(r,K1OM_ALLOW_RUNTIME,K1OM_PATH_RUNTIME);
+ FAILS(r,K1OM_ALLOW_DEFAULT,K1OM_MATCH_PATH_DISALLOWED);
+ r.properties|=K1OM_PROP_FP_EXCEPTION_STATE;
+ FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_SEMANTICS_UNVERIFIED);
+ r.operation=K1OM_OP_FP_SQRT;r.properties=K1OM_PROP_FP_APPROX_4ULP;
+ r.assumptions=K1OM_ASSUME_DEFAULT_FP_ENV|K1OM_ASSUME_ALLOW_APPROXIMATE_MATH;
+ OK(r,K1OM_ALLOW_RUNTIME,K1OM_PATH_RUNTIME);
+ r=k1om_require(K1OM_OP_GATHER,K1OM_TYPE_I32,K1OM_TYPE_I32,16,16);
+ r.layout=K1OM_LAYOUT_INDEX32_SCALE4;r.alignment=4;r.assumptions=K1OM_ASSUME_ACTIVE_MEMORY_VALID;r.properties=K1OM_PROP_MASKED_NO_ACCESS;
+ OK(r,K1OM_ALLOW_NATIVE,K1OM_PATH_NATIVE);
+ r.properties|=K1OM_PROP_ATOMIC_MEMORY;FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_SEMANTICS_UNVERIFIED);
+ r.properties=K1OM_PROP_MASKED_NO_ACCESS;r.operation=K1OM_OP_SCATTER;
+ FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_PRECONDITION_REQUIRED);
+ r.assumptions|=K1OM_ASSUME_DISTINCT_ACTIVE_ADDRESSES;OK(r,K1OM_ALLOW_NATIVE,K1OM_PATH_NATIVE);
+ r.properties|=K1OM_PROP_ORDERED_OVERLAP;FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_SEMANTICS_UNVERIFIED);
+ r.layout=K1OM_LAYOUT_POINTERS64;OK(r,K1OM_ALLOW_COMPOSED,K1OM_PATH_COMPOSED);
+ FAILS(r,K1OM_ALLOW_NATIVE,K1OM_MATCH_PATH_DISALLOWED);
+ r=k1om_require(K1OM_OP_COMPARE_SLT,K1OM_TYPE_I32,K1OM_TYPE_I32,16,16);
+ r.properties=K1OM_PROP_MASK_ALL_BITS;OK(r,K1OM_ALLOW_COMPOSED,K1OM_PATH_COMPOSED);
+ r.properties=K1OM_PROP_MASK_ZERO_ONE;OK(r,K1OM_ALLOW_COMPOSED,K1OM_PATH_COMPOSED);
+ r.properties|=K1OM_PROP_MASK_ALL_BITS;FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_SEMANTICS_UNVERIFIED);
+ r=k1om_require(K1OM_OP_NATIVE_BYTE_DOT,K1OM_TYPE_I8,K1OM_TYPE_I32,64,16);
+ FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_NATIVE_ABSENT);
+ r.operation=K1OM_OP_NATIVE_WORD_DOT;FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_NATIVE_ABSENT);
+ r.operation=K1OM_OP_NATIVE_BYTE_REGISTER_PERMUTE;FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_NATIVE_ABSENT);
+ r.operation=K1OM_OP_COUNT;FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_INVALID);
+ r=k1om_require(K1OM_OP_FP_REDUCE_ORDERED_ADD,K1OM_TYPE_F32,K1OM_TYPE_F32,16,1);
+ r.properties=K1OM_PROP_FP_SEQUENTIAL_RNE;r.assumptions=K1OM_ASSUME_DEFAULT_FP_ENV;
+ OK(r,K1OM_ALLOW_COMPOSED,K1OM_PATH_COMPOSED);
+ r.properties=K1OM_PROP_FP_APPROX_4ULP;FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_SEMANTICS_UNVERIFIED);
+ r.operation=K1OM_OP_FP_REDUCE_REASSOC_ADD;r.properties=K1OM_PROP_FP_REASSOC_VALUE;
+ FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_PRECONDITION_REQUIRED);
+ r.assumptions|=K1OM_ASSUME_ALLOW_REASSOCIATION;OK(r,K1OM_ALLOW_COMPOSED,K1OM_PATH_COMPOSED);
+ r.properties=K1OM_PROP_FP_SEQUENTIAL_RNE;FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_SEMANTICS_UNVERIFIED);
+ r=k1om_require(K1OM_OP_FP_REDUCE_ORDERED_MUL,K1OM_TYPE_F64,K1OM_TYPE_F64,4,1);
+ r.properties=K1OM_PROP_FP_SEQUENTIAL_RNE;r.assumptions=K1OM_ASSUME_DEFAULT_FP_ENV;OK(r,K1OM_ALLOW_COMPOSED,K1OM_PATH_COMPOSED);
+ r=k1om_require(K1OM_OP_INT_TO_FP_S,K1OM_TYPE_I32,K1OM_TYPE_F64,8,8);
+ r.properties=K1OM_PROP_FP_RNE_VALUE;r.assumptions=K1OM_ASSUME_DEFAULT_FP_ENV;OK(r,K1OM_ALLOW_NATIVE,K1OM_PATH_NATIVE);
+ r=k1om_require(K1OM_OP_FP_TO_INT_U,K1OM_TYPE_F64,K1OM_TYPE_I32,8,8);
+ r.properties=K1OM_PROP_EXACT_INTEGER;r.assumptions=K1OM_ASSUME_DEFAULT_FP_ENV;FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_PRECONDITION_REQUIRED);
+ r.assumptions|=K1OM_ASSUME_FP_TO_INT_IN_RANGE;OK(r,K1OM_ALLOW_NATIVE,K1OM_PATH_NATIVE);
+ r.properties=K1OM_PROP_UNSIGNED_SATURATION;FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_SEMANTICS_UNVERIFIED);
+ r=k1om_require(K1OM_OP_ADD,K1OM_TYPE_I32,K1OM_TYPE_I32,16,16);
+ FAILS(r,0,K1OM_MATCH_INVALID);FAILS(r,1u<<20,K1OM_MATCH_INVALID);
+ r.properties=1u<<30;FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_INVALID);r.properties=0;
+ r.assumptions=1u<<30;FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_INVALID);r.assumptions=0;
+ r.input_type=K1OM_TYPE_NONE;FAILS(r,K1OM_ALLOW_ANY,K1OM_MATCH_INVALID);
+ r=k1om_require(K1OM_OP_ADD,K1OM_TYPE_I32,K1OM_TYPE_I32,16,16);
+ k1om_match target=k1om_target_query(r,K1OM_ALLOW_NATIVE);
+ if(target.status!=(k1om_compiler_target()?K1OM_MATCH_OK:K1OM_MATCH_TARGET_MISMATCH))return 1;
+ k1om_requirement plan[2]={r,k1om_require(K1OM_OP_NATIVE_BYTE_DOT,K1OM_TYPE_I8,K1OM_TYPE_I32,64,16)};
+ k1om_plan_match p=k1om_catalog_match_requirements(plan,2,K1OM_ALLOW_ANY);
+ if(p.status!=K1OM_MATCH_NATIVE_ABSENT||p.failed_requirement!=1)return 1;
+ p=k1om_catalog_match_requirements(plan,1,K1OM_ALLOW_NATIVE);
+ if(p.status!=K1OM_MATCH_OK||p.failed_requirement!=(size_t)-1||p.path!=K1OM_PATH_NATIVE)return 1;
+ if(k1om_catalog_match_requirements(0,1,K1OM_ALLOW_ANY).status!=K1OM_MATCH_INVALID)return 1;
+ if(k1om_catalog_match_requirements(plan,0,K1OM_ALLOW_ANY).status!=K1OM_MATCH_INVALID)return 1;
+ /* A descriptor must match under its documented complete contract. These
+    inventory consistency checks supplement the independent cases above. */
+ for(size_t i=0;i<K1OM_CAPABILITY_COUNT;i++){
+  const k1om_capability *c=&k1om_capabilities[i];
+  k1om_requirement q={c->operation,c->input_type,c->output_type,c->input_lanes,c->output_lanes,c->alignment,c->layout,c->properties,c->preconditions};
+  OK(q,1u<<c->path,c->path);
+  if(!c->proof||!c->case_name||!c->proof[0]||!c->case_name[0])return 1;
+ }
+ printf("PASS capability contracts: manual=%u inventory=%u target=%d catalog=%s\n",checks-(unsigned)K1OM_CAPABILITY_COUNT,(unsigned)K1OM_CAPABILITY_COUNT,k1om_compiler_target(),K1OM_CATALOG_SHA256);
+ return 0;
+}

@@ -1,0 +1,7 @@
+#!/usr/bin/env python3
+"""Enable the experimental supported SIMD vectorizer for KNC workspace crates only."""
+import os,sys
+compiler,*args=sys.argv[1:]
+if any(a.endswith('/knc-native.json') for a in args):
+    args=[a for a in args if a not in ('-Cno-vectorize-loops','-Cno-vectorize-slp')]
+os.execv(compiler,[compiler,*args])

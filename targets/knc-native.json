@@ -1,0 +1,44 @@
+{
+  "arch": "x86_64",
+  "code-model": "small",
+  "cpu": "knc",
+  "crt-objects-fallback": "false",
+  "data-layout": "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128",
+  "disable-redzone": true,
+  "features": "-mmx,-sse,-sse2,-sse3,-ssse3,-sse4.1,-sse4.2,-avx,-avx2,-cx16,-cmov,+soft-float,+knc,+knc-native-abi,+knc-scalar-fp",
+  "linker": "knc-link",
+  "linker-flavor": "gnu-cc",
+  "llvm-target": "x86_64-unknown-linux-gnu",
+  "max-atomic-width": 64,
+  "panic-strategy": "abort",
+  "plt-by-default": false,
+  "position-independent-executables": false,
+  "relro-level": "full",
+  "rustc-abi": "softfloat",
+  "stack-probes": {
+    "kind": "none"
+  },
+  "target-pointer-width": 64,
+  "relocation-model": "static",
+  "os": "linux",
+  "env": "gnu",
+  "target-family": [
+    "unix"
+  ],
+  "dynamic-linking": true,
+  "has-thread-local": true,
+  "late-link-args": {
+    "gnu-cc": [
+      "-ldl",
+      "-lpthread",
+      "-lm",
+      "-lrt",
+      "-lutil"
+    ]
+  },
+  "pre-link-args": {
+    "gnu-cc": [
+      "--knc-native-abi"
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "status": "passed",
+  "date": "2026-10-27",
+  "scope": "Source reorganization integration; compiler source patch unchanged. Existing patched LLVM and rustc reused; runtimes/libraries/client applications freshly built with public commands.",
+  "compiler_rebuilt_for_reorganization": false,
+  "rustc_rebuilt_for_reorganization": false,
+  "llvm_patch_sha256": "b1e321ca0ed7172fe888c49b30942bb33c81474e2166b45030edb64684600419",
+  "llama_patch_sha256": "b1e1ed95bc871ac02cb7afa9e69f24742dc497616f0c7608d4a6fbc06628bdca",
+  "checks": {
+    "python_release_and_source_tests": 8,
+    "llvm_clang_codegen_tests_passed": 67,
+    "capability_contract_languages": [
+      "C11",
+      "C++17"
+    ],
+    "capability_inventory_entries": 1180,
+    "capability_manual_cases_per_language": 59,
+    "pristine_patch_replay_files": {
+      "llvm": 97,
+      "llama": 10
+    },
+    "native_runtime_build": "passed",
+    "target_libstdcxx_13_4_build": "passed",
+    "rust_std_client_build": "passed",
+    "llama_builds": [
+      "knc/default",
+      "knl/repack"
+    ]
+  },
+  "hardware": {
+    "knc_c": {
+      "returncode": 0,
+      "binary_sha256": "87857489e72dbddbaa948509e547ac7a4ca8bf5920d3561ba2fc33e60684b41e"
+    },
+    "knc_cxx": {
+      "returncode": 0,
+      "binary_sha256": "4f7a145a753929d64784fdc2094138a19093c4f237342211a12463a9e7df9d75"
+    },
+    "knc_rust_std": {
+      "returncode": 0,
+      "binary_sha256": "a1bd67117c934d5cd0318aeab5bdcc87a747d5abd76915ef7b4358bbeb7efc36"
+    },
+    "knc_cxx17_facilities": {
+      "returncode": 0,
+      "binary_sha256": "824dabe48244adb5b4f2fa0fd70a52488c271d49714e14cfda3df6ab278b8e0e"
+    },
+    "knc_llama_matmul": {
+      "returncode": 0,
+      "binary_sha256": "da7b8df95f8d8d9e3673d426df3100bae8ce18162b8b9ebf8bfd7bb8bed2e94a",
+      "cases_passed": 83
+    },
+    "knl_llama_prompt_decode": {
+      "returncode": 0,
+      "prompt_tokens": 4,
+      "decode_tokens": 4,
+      "repetitions": 1
+    }
+  },
+  "limits": [
+    "No hosted CI run yet",
+    "No fresh full LLVM/rustc bootstrap during reorganization",
+    "No SDK/model/binary artifacts or private raw logs distributed",
+    "Historical inference performance is documented separately"
+  ]
+}

@@ -1,0 +1,22 @@
+# RUN: llc -mcpu=knc -start-after=virtregrewriter -filetype=obj %s -o %t
+# RUN: llvm-readobj --hex-dump=.text %t | FileCheck %s
+# MPSS K1OM binutils independently assembled low/high register operands.
+# CHECK: 62f17808 5ad16221 78085af9 62f1f9c8
+# CHECK-NEXT: {{.*}}5ad16221 f9c85af9 c3
+--- |
+  target triple = "x86_64-unknown-linux-gnu"
+  define void @fp_conversion_encoding() #0 { ret void }
+  attributes #0 = { "target-cpu"="knc" }
+...
+---
+name: fp_conversion_encoding
+tracksRegLiveness: true
+body: |
+  bb.0:
+    liveins: $zmm1, $zmm17
+    $zmm2 = KNC_CVT_F32_F64 $zmm1
+    $zmm31 = KNC_CVT_F32_F64 $zmm17
+    $zmm2 = KNC_CVT_F64_F32 $zmm1
+    $zmm31 = KNC_CVT_F64_F32 $zmm17
+    RET 0
+...

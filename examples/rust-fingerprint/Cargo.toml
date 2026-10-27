@@ -1,0 +1,8 @@
+[package]
+name = "knc-fingerprint"
+version = "0.1.0"
+edition = "2021"
+[dependencies]
+knc-runtime = {path = "../knc-runtime"}
+[profile.release]
+panic = "abort"

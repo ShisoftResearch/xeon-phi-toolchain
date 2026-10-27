@@ -1,0 +1,22 @@
+# RUN: llc -mcpu=knc -start-after=virtregrewriter -filetype=obj %s -o %t
+# RUN: llvm-readobj --hex-dump=.text %t | FileCheck %s
+# Independently assembled with MPSS binutils; tests/knc-approx-sdk.s.
+# CHECK: 62f27908 cad16222 7908caf9 62f27908
+# CHECK-NEXT: {{.*}}cbd16222 7908cbf9 c3
+--- |
+  target triple = "x86_64-unknown-linux-gnu"
+  define void @approx_encoding() #0 { ret void }
+  attributes #0 = { "target-cpu"="knc" }
+...
+---
+name: approx_encoding
+tracksRegLiveness: true
+body: |
+  bb.0:
+    liveins: $zmm1, $zmm17
+    $zmm2 = KNC_VRCP23PS $zmm1
+    $zmm31 = KNC_VRCP23PS $zmm17
+    $zmm2 = KNC_VRSQRT23PS $zmm1
+    $zmm31 = KNC_VRSQRT23PS $zmm17
+    RET 0
+...
