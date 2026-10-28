@@ -158,6 +158,7 @@ def main():
     f=sub.add_parser('fetch');f.add_argument('component',choices=['llvm','rust','llama']);f.add_argument('--local',help='Existing local Git repository as a fetch source; pinned commit is still enforced')
     for name in ['build-llvm','build-runtime','build-cxx','build-rust','test-codegen','test-host','test-patches','check-release']:
         sub.add_parser(name)
+    simd=sub.add_parser('test-portable-simd');simd.add_argument('--offline',action='store_true')
     ll=sub.add_parser('build-llama');ll.add_argument('--arch',choices=['knc','knl'],required=True);ll.add_argument('--profile',default='default')
     ll.add_argument('--print-options',action='store_true')
     pack=sub.add_parser('package');pack.add_argument('--output',type=Path,required=True)
@@ -173,6 +174,7 @@ def main():
         else:build_llama(a.arch,a.profile)
     elif a.command=='test-codegen':test_codegen()
     elif a.command=='test-patches':run([sys.executable,ROOT/'scripts/check-patches.py'])
+    elif a.command=='test-portable-simd':run([sys.executable,ROOT/'scripts/test-portable-simd.py',*(['--offline'] if a.offline else [])])
     elif a.command=='test-host':run([sys.executable,ROOT/'scripts/test-host.py'])
     elif a.command=='check-release':run([sys.executable,ROOT/'scripts/release.py','check'])
     elif a.command=='package':run([sys.executable,ROOT/'scripts/release.py','package','--output',a.output])

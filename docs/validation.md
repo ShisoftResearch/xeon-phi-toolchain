@@ -29,6 +29,13 @@ A manually requested workflow can also build LLVM and run codegen tests. It has
 no card access or SDK credentials. CI configuration is provided; a hosted CI
 run is not claimed before this repository is published.
 
+## Rust portable SIMD
+
+See `rust-portable-simd.md` and `validation/portable-simd.json` for the standard
+Rust API extension, local compile/instruction matrix, differential fixtures and
+actual KNC runs. `python3 scripts/phi.py test-portable-simd` builds the host and
+card artifacts; only the host artifacts execute locally.
+
 ## Hardware checks
 
 Run cross-compiled examples on a card using your own connection settings.

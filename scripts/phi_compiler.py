@@ -56,10 +56,10 @@ def rust_link(args: list[str]):
     # that metadata with the K1OM assembler; never translate executable code.
     out=[]
     for arg in args:
-        if arg=='--knc-native-abi':continue
+        if arg in ['--knc-native-abi','-no-pie']:continue
         if arg.endswith('/symbols.o'):
             dest=str(Path(arg).with_name('symbols-k1om.o'))
-            run([sys.executable,ROOT/'scripts/prepare-link-symbols.py',arg,dest])
+            subprocess.run([sys.executable,ROOT/'scripts/prepare-link-symbols.py',arg,dest],check=True)
             arg=dest
         out.append(arg)
     exe=sdk_tool('gcc');require(exe,'Set PHI_SDK_ROOT to the installed SDK')

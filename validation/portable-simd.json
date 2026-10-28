@@ -1,0 +1,94 @@
+{
+  "status": "passed",
+  "created_utc": "2026-10-28T04:11:26.805418+00:00",
+  "target": "native ELF64 K1OM on one KNC card",
+  "llvm_revision": "395ba2c4d274e0d81bea69a49aba372e3743d113",
+  "rust_revision": "0dfb098f3aeecbe38c2566ca090193280e7349e7",
+  "llvm_patch_sha256": "b1e321ca0ed7172fe888c49b30942bb33c81474e2166b45030edb64684600419",
+  "llvm_changed": false,
+  "rust_sources_changed": false,
+  "api": "core::simd / std::simd, portable_simd nightly feature; f16 additionally enabled",
+  "elements": [
+    "f16",
+    "f32",
+    "f64",
+    "i16",
+    "i32",
+    "i64",
+    "i8",
+    "isize",
+    "u16",
+    "u32",
+    "u64",
+    "u8",
+    "usize"
+  ],
+  "lane_counts": [
+    1,
+    2,
+    3,
+    4,
+    7,
+    8,
+    16,
+    17,
+    32,
+    64
+  ],
+  "api_cases": 9380,
+  "differential_trials": 75040,
+  "scalar_bit_offset_checks": 1616,
+  "protected_page_lane_checks": 232518,
+  "rust_vector_value_callback_abi_lane_checks": 4004,
+  "host_python_tests": 10,
+  "codegen_groups": 130,
+  "decoded_instructions": 1491482,
+  "native_instruction_examples": [
+    {
+      "function": "psimd_u32_16_add",
+      "instruction": "vpaddd"
+    },
+    {
+      "function": "psimd_f32_16_mul",
+      "instruction": "vmulps"
+    },
+    {
+      "function": "psimd_f64_8_add",
+      "instruction": "vaddpd"
+    }
+  ],
+  "target_binaries_sha256": {
+    "knc-portable-simd": "9bd6f41f1e9888cf790fb001e3a03b5d766a0de55942aefbe8deb9b728ca04a9",
+    "portable-simd-corpus": "aca8fc7810789a7fc004b3dde3c86a7481dd9e8d20005dccd20c7e55ffb3200e"
+  },
+  "fixture_sha256": "62e5b791f2b67f9550cac9211636d09bb3f974a1330359d962cf826f55664ec4",
+  "private_report_sha256": {
+    "local": "eac330780c366db1fd0a7f4d3982e2537dd04b9d753c00c676656bf57a78dd70",
+    "corpus": "27f8d4a64f16224fa782bdb205d74948e6f2760c784132b4781e6647baa408c3",
+    "guards_and_abi": "8e96c52fc9b62e2f86fc5f78bd23c3778b77cdd80239084258109a9aa4890bd4"
+  },
+  "source_sha256": {
+    "scripts/phi.py": "fc39a701bd30357918bc8c80857a9b6be588b559d0b3ff7abd297f81746c31c3",
+    "scripts/phi_compiler.py": "181bfc10b1bce87a71ef60519a2c53d754f36b5e8fa250741afff772cd846af0",
+    "scripts/generate-portable-simd.py": "75334b49f93eb11f33cac979d3c88c4cccfcba53c7c49a66e97330e7309d084f",
+    "scripts/test-portable-simd.py": "c5319159cba43b05780b60e651ef0dbca5a62cbf64f34f6e7cbcf237fd3d8ded",
+    "tests/python/test_portable_simd.py": "c06c71576af9d19d030678b63d0947efbf1ffcf7bfd1af9cbc6d91bd1220329e",
+    "tests/python/test_release_tools.py": "8f53a199b915410522339e1d1d3eea7992def42018a27a74f20523478f8a6423",
+    "docs/rust-portable-simd.md": "afeb71c5248e6cde5707b5fba454641f6501be9d776f61d9c600ccfbf57ece3b",
+    "examples/rust-portable-simd/Cargo.lock": "ee82cfb514d4ab56426d3cba88892956b8718b4c1b95b4727f61eca4eed7f029",
+    "examples/rust-portable-simd/Cargo.toml": "f88837eca35c475a59c2564ad5944fdb7e3f5851533a66b4c8541112066ae52a",
+    "examples/rust-portable-simd/src/corpus.rs": "cbad59e46a9e4eef62e206a89ed81964ce54e75233e890c3706e9889efd8451f",
+    "examples/rust-portable-simd/src/guards.rs": "0e5b028d2adffd945b7f89adb578c10ee81b99d39b9d6df81e277e70752e2057",
+    "examples/rust-portable-simd/src/lib.rs": "d58224238cc626728474ca9b6da4a27cdbf69a59e90bf7da87a04fd6ca62722a",
+    "examples/rust-portable-simd/src/main.rs": "d0e2c882633258ba9642a38bd2a2f7f2f88792cb1945e8e6da16797d37595e0c"
+  },
+  "limits": [
+    "Pinned nightly and finite tested shapes/APIs; not an assertion about arbitrary future Rust versions",
+    "Differential fixture uses host portable SIMD; not an independent mathematical proof",
+    "NaN classification and permitted min/max signed-zero choices; bounded transcendental/reciprocal comparisons allow 4 ULP",
+    "Default FP environment; no exhaustive IEEE inputs, exception flags or nondefault rounding-mode claim",
+    "Rust-to-Rust vector ABI tested; no cross-language vector ABI claim",
+    "Narrow/64-bit integer and half arithmetic may compose/scalarize; no performance benchmark claimed",
+    "Raw private hardware logs, fixtures, objects and connection settings are excluded from source release"
+  ]
+}

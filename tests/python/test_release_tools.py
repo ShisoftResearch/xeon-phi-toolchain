@@ -57,6 +57,14 @@ class PublicationBoundaries(unittest.TestCase):
         self.assertTrue(release.inspect_file('build/sdk/file',b'ordinary text'))
     def test_public_source_is_allowed(self):
         self.assertFalse(release.inspect_file('examples/hello.c',b'int main(void) { return 0; }\n'))
+    def test_native_link_does_not_pass_unsupported_sdk_options(self):
+        with patch.object(phi_compiler,'require'), patch.object(phi_compiler,'sdk_tool',return_value=Path('/sdk/gcc')), patch.object(phi_compiler,'sdk_bin',return_value=Path('/sdk/bin')), patch.object(phi_compiler.os,'execv') as execute:
+            phi_compiler.rust_link(['-no-pie','--knc-native-abi','first.o','-o','application'])
+            command=execute.call_args.args[1]
+            self.assertEqual(command[0],'/sdk/gcc')
+            self.assertIn('first.o',command)
+            self.assertNotIn('-no-pie',command)
+            self.assertNotIn('--knc-native-abi',command)
     def test_verbose_link_retains_target_linker_and_runtime(self):
         self.assertTrue(phi_compiler.linking(['-v','hello.c','-o','hello']))
         self.assertFalse(phi_compiler.linking(['-v']))

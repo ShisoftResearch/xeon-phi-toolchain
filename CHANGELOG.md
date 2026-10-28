@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- Standard Rust portable-SIMD example and local/card regression workflow:
+  9,380 API cases, masked guard-page checks, FP edges and Rust vector-value ABI.
+- Suppress SDK-incompatible `-no-pie` and metadata-link chatter in the native
+  Rust linker wrapper.
+
 ## 0.1.0
 
 Initial public source organization of the experimental KNC/K1OM LLVM toolchain.
