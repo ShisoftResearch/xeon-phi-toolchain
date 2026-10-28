@@ -57,8 +57,17 @@ bin/cargo-knc build --manifest-path examples/rust-std-demo/Cargo.toml --release
 Standard Rust portable SIMD is supported through `core::simd` / `std::simd`
 on the pinned nightly, without custom vector wrappers. The tested matrix spans
 13 numeric element types and ten lane counts, including odd-sized vectors.
-See [portable SIMD](docs/rust-portable-simd.md) for the example and reproducible
-local/card validation commands.
+Build the included example:
+
+```sh
+bin/cargo-knc build --manifest-path examples/rust-portable-simd/Cargo.toml \
+  --bin knc-portable-simd --release
+```
+
+The K1OM executable is `build/cargo/knc-native/release/knc-portable-simd`;
+copy it to a KNC card and run it there. See
+[portable SIMD](docs/rust-portable-simd.md) for standard-API source examples,
+the complete test command and the hardware-validated scope.
 
 See [building](docs/building.md) for prerequisites, SDK relocation, CMake,
 external build paths, Rust's experimental vectorizer, and troubleshooting.

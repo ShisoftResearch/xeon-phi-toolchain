@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.2.0 — 2026-10-28
 
 - Standard Rust portable-SIMD example and local/card regression workflow:
   9,380 API cases, masked guard-page checks, FP edges and Rust vector-value ABI.

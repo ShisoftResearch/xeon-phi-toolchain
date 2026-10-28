@@ -19,7 +19,7 @@ patches and portable build/test commands, not an MPSS SDK or model weights.
 
    ```sh
    python3 scripts/phi.py package \
-     --output dist/xeon-phi-toolchain-0.1.0-source.tar.gz
+     --output dist/xeon-phi-toolchain-0.2.0-source.tar.gz
    ```
 
 The packager requires a clean Git worktree, audits every tracked file, rejects
